@@ -1,4 +1,8 @@
-from settings import useful
+from settings import Useful
 
+sInitialRoute = './pages'
+sFinalRoute = './web'
 
-useful.hello()
+aIgnore = ['src']
+Useful.deleteFilesOrDirectories(sFinalRoute, aIgnore)
+Useful.loadPagefiles(sInitialRoute, sFinalRoute)
