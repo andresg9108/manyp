@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         copy: {
-            main: {
+            js: {
                 expand: true,
                 cwd: 'src/',
                 src: ["js/*.js"],
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
             },
             load_js: {
                 files: aRouteJs,
-                tasks: ['copy:main']
+                tasks: ['copy:js']
             }
         }
         
