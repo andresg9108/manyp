@@ -1,16 +1,13 @@
 module.exports = function(grunt) {
     // Python
-    var aRoutePy = [
-        './pages/*',
-        './settings/*'
-    ];
+    var aRoutePy = ['./pages/*','./settings/*'];
 
     // Handlebars
     var aRouteHbs = ['./src/template/*'];
-    var aRouteHbsWeb = {
+    var oRouteHbs = {
         'web/src/template/main.js': ['src/template/*.hbs']
     };
-
+    
     // Sass
     var aRouteSass = ['./src/sass/*'];
 
@@ -52,19 +49,19 @@ module.exports = function(grunt) {
             options: {
               namespace: 'Hbs'
             },
-            files: aRouteHbsWeb
+            files: oRouteHbs
           }
         },
 
         watch: {
             options: {
                 nospawn: true,
-                livereload: true
+                livereload: false
             },
             load_python: {
                 files: aRoutePy,
-                tasks: ['tPython']
-            }
+                tasks: ['tPy']
+            },
             load_sass: {
                 files: aRouteSass,
                 tasks: ['sass']
@@ -81,10 +78,10 @@ module.exports = function(grunt) {
         
     });
 
-    grunt.registerTask('tPython', function(){
+    grunt.registerTask('tPy', function(){
         grunt.util.spawn({
             cmd: 'python',
-            args: ['load.py','-l'],
+            args: ['load.py', '-l'],
             opts: {stdio: 'inherit'},
         });
     });

@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "grunt"
+    "start": "livereload .",
+    "c": "grunt"
   },
   "repository": {
     "type": "git",
