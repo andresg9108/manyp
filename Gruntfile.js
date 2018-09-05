@@ -1,6 +1,9 @@
 module.exports = function(grunt) {
     // Python
-    var aRoutePy = ['./pages/*','./settings/*'];
+    var aRoutePy = [
+        './pages/*',
+        './settings/*'
+    ];
 
     // Handlebars
     var aRouteHbs = ['./src/template/*'];
@@ -56,9 +59,9 @@ module.exports = function(grunt) {
         watch: {
             options: {
                 nospawn: true,
-                livereload: false
+                livereload: true
             },
-            load_python: {
+            load_py: {
                 files: aRoutePy,
                 tasks: ['tPy']
             },
