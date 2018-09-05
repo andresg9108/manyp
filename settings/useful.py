@@ -20,13 +20,14 @@ def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
 
 	aContentHead = getFileContent(sInitialRoute+'/'+sHead)
 	aContentBody = getFileContent(sInitialRoute+'/'+sBody)
+	sRouteRoot = getRoot(sFinalRoute)
 
 	aContentIndex = getFileContent(sTemplateRoute)
-	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, '', [])
+	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '', [])
 	aContentIndex = getFileContent(sFinalRoute+'/'+sIndex)
-	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, '<!--headHTML-->', aContentHead)
+	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '<!--headHTML-->', aContentHead)
 	aContentIndex = getFileContent(sFinalRoute+'/'+sIndex)
-	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, '<!--bodyHTML-->', aContentBody)
+	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '<!--bodyHTML-->', aContentBody)
 
 	aInitialRoute = lsDirectories(sInitialRoute)
 	for sRoute in aInitialRoute:
@@ -34,7 +35,17 @@ def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
 		sSonFinalRoute = sFinalRoute+'/'+sRoute
 		loadPagefiles(sSonInitialRoute, sSonFinalRoute, sTemplateRoute)
 
-def writeIndexFile(sRoute, aContentIndex, sTag, aContentTag):
+def getRoot(sRoute):
+	sRoute = sRoute.replace("./","")
+	sRouteRoot = ''
+	for sR in sRoute:
+		if(sR == "/"):
+			sRouteRoot = sRouteRoot + "../"
+	if sRouteRoot == '':
+		return './'
+	return sRouteRoot
+
+def writeIndexFile(sRoute, aContentIndex, sRouteRoot, sTag, aContentTag):
 	oFile = open(sRoute, "w")
 
 	for sLine in aContentIndex:
@@ -43,6 +54,9 @@ def writeIndexFile(sRoute, aContentIndex, sTag, aContentTag):
 			for sContentTag in aContentTag:
 				sLine = sLine + sContentTag
 			sLine = sLine + '\n'
+			sLine = sLine.replace("<<DIR>>", sRouteRoot)
+		else:
+			sLine = sLine.replace("<<DIR>>", sRouteRoot)
 		oFile.write(sLine)
 	
 	oFile.close()
