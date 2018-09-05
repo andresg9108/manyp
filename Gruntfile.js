@@ -1,7 +1,14 @@
 module.exports = function(grunt) {
-    var aRutasSass = ['./src/sass/*'];
-    var aRutasJs = ['./src/js/*'];
-    var aRutasHbs = ['./src/template/*'];
+    var aRoutePython = [
+        './pages/*',
+        './settings/*'
+    ];
+    var aRoutePythonWeb = [
+        './web/*'
+    ];
+    var aRouteSass = ['./src/sass/*'];
+    var aRouteJs = ['./src/js/*'];
+    var aRouteHbs = ['./src/template/*'];
 
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -18,7 +25,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd:    "src/sass/",
                     src:    ["*.sass"],
-                    dest: "src/css/",
+                    dest: "web/src/css/",
                     ext:    ".css"
                 }]
             }
@@ -36,27 +43,41 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            //Optiones de configuracion.
             options: {
                 nospawn: true,
                 livereload: true
             },
-            tarea_sass: {
-                files: aRutasSass,
+            load_python: {
+                files: aRoutePython,
+                tasks: ['tPython']
+            },
+            load_python_web: {
+                files: aRoutePythonWeb
+            },
+            load_sass: {
+                files: aRouteSass,
                 tasks: ['sass']
             },
-            tarea_handlebars: {
-                files: aRutasHbs,
+            load_handlebars: {
+                files: aRouteHbs,
                 tasks: ['handlebars']
             },
-            tarea_js: {
-                files: aRutasJs
+            load_js: {
+                files: aRouteJs
             },
-            tarea_index: {
+            load_index: {
                 files: ['./index.html']
             }
         }
         
+    });
+
+    grunt.registerTask('tPython', function(){
+        grunt.util.spawn({
+            cmd: 'python',
+            args: ['load.py','-l'],
+            opts: {stdio: 'inherit'},
+        });
     });
     
     grunt.registerTask('default', ['watch']);
