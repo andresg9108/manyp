@@ -1,13 +1,20 @@
 module.exports = function(grunt) {
-    var aRoutePython = [
+    // Python
+    var aRoutePy = [
         './pages/*',
         './settings/*'
     ];
-    var aRoutePythonWeb = [
-        './web/*'
-    ];
-    var aRouteSass = ['./src/sass/*'];
+
+    // Handlebars
     var aRouteHbs = ['./src/template/*'];
+    var aRouteHbsWeb = {
+        'web/src/template/main.js': ['src/template/*.hbs']
+    };
+
+    // Sass
+    var aRouteSass = ['./src/sass/*'];
+
+    // Js
     var aRouteJs = ['./src/js/*'];
 
     // load all grunt tasks
@@ -45,9 +52,7 @@ module.exports = function(grunt) {
             options: {
               namespace: 'Hbs'
             },
-            files: {
-              'web/src/template/main.js': ['src/template/*.hbs']
-            }
+            files: aRouteHbsWeb
           }
         },
 
@@ -57,12 +62,9 @@ module.exports = function(grunt) {
                 livereload: true
             },
             load_python: {
-                files: aRoutePython,
+                files: aRoutePy,
                 tasks: ['tPython']
-            },
-            load_python_web: {
-                files: aRoutePythonWeb
-            },
+            }
             load_sass: {
                 files: aRouteSass,
                 tasks: ['sass']
