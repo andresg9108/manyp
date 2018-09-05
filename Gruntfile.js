@@ -7,14 +7,23 @@ module.exports = function(grunt) {
         './web/*'
     ];
     var aRouteSass = ['./src/sass/*'];
-    var aRouteJs = ['./src/js/*'];
     var aRouteHbs = ['./src/template/*'];
+    var aRouteJs = ['./src/js/*'];
 
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        copy: {
+            main: {
+                expand: true,
+                cwd: 'src/',
+                src: ["js/*.js"],
+                dest: 'web/src/'
+            }
+        },
 
         sass: {
             dist: {
@@ -37,7 +46,7 @@ module.exports = function(grunt) {
               namespace: 'Hbs'
             },
             files: {
-              'src/template/js/main.js': ['src/template/*.hbs']
+              'web/src/template/main.js': ['src/template/*.hbs']
             }
           }
         },
@@ -63,10 +72,8 @@ module.exports = function(grunt) {
                 tasks: ['handlebars']
             },
             load_js: {
-                files: aRouteJs
-            },
-            load_index: {
-                files: ['./index.html']
+                files: aRouteJs,
+                tasks: ['copy:main']
             }
         }
         
