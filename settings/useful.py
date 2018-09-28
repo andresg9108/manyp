@@ -1,5 +1,31 @@
-import glob, sys, shutil
+import glob, sys, shutil, time
 from os import mkdir, remove, path, scandir, getcwd
+
+def loadLogs(sFileLog):
+	if not path.isfile(sFileLog):
+		oFile = open(sFileLog, "w")
+		oFile.write('Logs')
+		oFile.close()
+	else:
+		oFile = open(sFileLog, "r")
+		aContent = oFile.readlines()
+		oFile.close()
+
+		iCount = 0
+		for sLine in aContent:
+			iCount = iCount + 1
+
+		if iCount > 99:
+			oFile = open(sFileLog, "w")
+			oFile.write('Logs')
+			oFile.close()
+
+	oFile = open(sFileLog, "a")
+	sDate = time.strftime('%d/%m/%y')
+	sHour = time.strftime('%H:%M:%S')
+	oFile.write('\n')
+	oFile.write(sDate+' '+sHour)
+	oFile.close()
 
 def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
 	sHead = 'head.html'

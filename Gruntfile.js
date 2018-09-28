@@ -5,6 +5,9 @@ module.exports = function(grunt) {
         './settings/*'
     ];
 
+    // Log
+    var aLog = ['./manyp.log'];
+
     // Handlebars
     var aRouteHbs = ['./src/template/*'];
     var oRouteHbs = {
@@ -64,6 +67,9 @@ module.exports = function(grunt) {
             load_py: {
                 files: aRoutePy,
                 tasks: ['tPy']
+            },
+            load_log: {
+                files: aLog
             },
             load_sass: {
                 files: aRouteSass,
