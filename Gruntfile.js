@@ -102,7 +102,7 @@ module.exports = function(grunt) {
             console.log('Running python with grunt [OK]');
         });
     });
-    
+
     grunt.registerTask('default', ['watch']);
     grunt.loadNpmTasks('grunt-contrib');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
