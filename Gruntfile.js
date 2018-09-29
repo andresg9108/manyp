@@ -60,9 +60,13 @@ module.exports = function(grunt) {
         },
 
         watch: {
+            files: ['*.*'],
             options: {
                 nospawn: true,
-                livereload: true
+                livereload: {
+                    host: 'localhost',
+                    port: 35729
+                }
             },
             load_py: {
                 files: aRoutePy,
@@ -89,9 +93,13 @@ module.exports = function(grunt) {
 
     grunt.registerTask('tPy', function(){
         grunt.util.spawn({
+            opts: {
+                stdio: 'inherit'
+            },
             cmd: 'python',
             args: ['load.py', '-l'],
-            opts: {stdio: 'inherit'},
+        }, function(error, result, code){
+            console.log('Running python with grunt [OK]');
         });
     });
     
