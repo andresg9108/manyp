@@ -1,3 +1,6 @@
+var sFileLogs = './manyp.log';
+const fs = require('fs');
+
 module.exports = function(grunt) {
     // Python
     var aRoutePy = [
@@ -99,7 +102,23 @@ module.exports = function(grunt) {
             cmd: 'python',
             args: ['load.py', '-l'],
         }, function(error, result, code){
-            console.log('Running python with grunt [OK]');
+            fs.readFile(sFileLogs, 'utf8', function(err, data){
+                if (!err) {
+                    let oDate = new Date();
+                    /*let iHour = oDate.getHours();
+                    let iMinutes = oDate.getMinutes();
+                    let iSeconds = oDate.getSeconds();*/
+
+                    let sWrite = data + '\n';
+                    sWrite += oDate+' (Grunt [OK])';
+                    fs.writeFile(sFileLogs, sWrite, function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+                        console.log("Grunt [OK]");
+                    });
+                }
+            });
         });
     });
 

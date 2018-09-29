@@ -24,7 +24,7 @@ def loadLogs(sFileLog):
 	sDate = time.strftime('%d/%m/%y')
 	sHour = time.strftime('%H:%M:%S')
 	oFile.write('\n')
-	oFile.write(sDate+' '+sHour)
+	oFile.write(sDate+' '+sHour+' (Python [OK])')
 	oFile.close()
 
 def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
