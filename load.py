@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from settings import Useful
+from settings import useful
 
 sTemplateRoute = './settings/index.html'
 sInitialRoute = './pages'
@@ -11,9 +11,9 @@ aIgnore = ['src']
 sArgv = sys.argv[1]
 
 if sArgv == '-l':
-	Useful.deleteFilesOrDirectories(sFinalRoute, aIgnore)
-	Useful.loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute)
-	Useful.loadLogs(sFileLog)
+	useful.deleteFilesOrDirectories(sFinalRoute, aIgnore)
+	useful.loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute)
+	useful.loadLogs(sFileLog)
 
 	print('OK')
 else:
