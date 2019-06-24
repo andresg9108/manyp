@@ -5,220 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
 
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Raleway' />
-    <link rel="stylesheet" type="text/css" href="./src/lib/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="./src/lib/jquery/jquery-ui/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="./src/lib/mydesign/main.css" />
-    <link rel="stylesheet" type="text/css" href="./src/css/main.css" />
-    <script src="./src/lib/jquery/jquery.min.js"></script>
-    <script src="./src/lib/jquery/jquery-ui/jquery-ui.min.js"></script>
-    <script src="./src/lib/handlebars/handlebars.min.js"></script>
-    <script src="./src/template/main.js"></script>
-    <script src="./src/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/main.css" />
 
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="../src/template/dist/main.js"></script>
+    <script src="../src/js/main.js"></script>
+
+<!--Route: index.html-->
 <title>Many Page</title>
   </head>
   <body>
-
-<!-- Begin my-floatheader -->
-<header class="my-floatheader">
-  <img id="logo" src="./src/img/logo.svg" />
-  <div id="menu">
-    <div id="menusmall">
-      <span onclick="myd_openFloatHeaderSearch()" class="fa fa-search fa-lg"></span>
-      <button class="my-button-icon">
-          <span class="fa fa-camera fa-1x"></span>
-          Publicar
-      </button>
-    </div>
-    <div id="menubig">
-      <div id="izq">
-        <div id="search">
-          <form method="post">
-              <input type="search" id="myinput" class="my-autocompleteinput" placeholder="¿Qu&eacute; est&aacute;s buscando?" />
-              <span onclick="myd_floatHeaderMenu1()" class="fa fa-caret-square-o-down fa-lg"></span>
-              <button class="fa fa-search fa-lg"></button>
-          </form>
-        </div>
-      </div>
-      <div id="der">
-        <button class="my-button-icon">
-            <span class="fa fa-camera fa-1x"></span>
-            Publicar
-        </button>
-        <span class="fa fa-android fa-2x"></span>
-        <span class="fa fa-book fa-2x"></span>
-        <span class="fa fa-file fa-2x"></span>
-      </div>
-    </div>
-  </div>
-  <span onclick="myd_sideMenu()" class="fa fa-bars fa-2x"></span>
-</header>
-<div class="my-floatheader-search">
-  <span onclick="myd_floatHeaderMenu1()" class="fa fa-caret-square-o-down fa-2x"></span>
-  <div id="search">
-      <form method="post">
-          <input type="search" id="myinputm" class="my-autocompleteinput" placeholder="¿Qu&eacute; est&aacute;s buscando?" />
-          <button class="fa fa-search fa-lg"></button>
-      </form>
-  </div>
-  <span onclick="myd_closeFloatHeaderSearch()" class="fa fa-times fa-2x"></span>
-</div>
-<div class="my-floatheader-menu-1">
-  <div>
-    <div id="nav">
-      <span onclick="myd_floatHeaderMenu1()" class="fa fa-times fa-2x"></span>
-      <span class="fa fa-info-circle fa-2x"></span>
-    </div>
-    <div id="body">
-      <h3>Advanced search</h3>
-
-      <div class="my-two-columns">
-        <div id="left">
-          <div class="my-field-column">
-            <label for="search">Select:</label>
-            <select class="my-selectionmenu">
-              <option value="0">Select one</option>
-              <option value="1">Option #1</option>
-              <option value="2">Option #2</option>
-              <option value="3">Option #3</option>
-              <option value="4">Option #4</option>
-            </select>
-            <span></span>
-          </div>
-
-          <div class="my-field-column">
-            <label for="search">Select:</label>
-            <select class="my-selectionmenu">
-              <option value="0">Select one</option>
-              <option value="1">Option #1</option>
-              <option value="2">Option #2</option>
-              <option value="3">Option #3</option>
-              <option value="4">Option #4</option>
-            </select>
-            <span></span>
-          </div>
-        </div>
-        <div id="right">
-          <div class="my-field-column">
-            <label for="search">Select:</label>
-            <select class="my-selectionmenu">
-              <option value="0">Select one</option>
-              <option value="1">Option #1</option>
-              <option value="2">Option #2</option>
-              <option value="3">Option #3</option>
-              <option value="4">Option #4</option>
-            </select>
-            <span></span>
-          </div>
-
-          <div class="my-field-column">
-            <label for="search">Select:</label>
-            <select class="my-selectionmenu">
-              <option value="0">Select one</option>
-              <option value="1">Option #1</option>
-              <option value="2">Option #2</option>
-              <option value="3">Option #3</option>
-              <option value="4">Option #4</option>
-            </select>
-            <span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="my-keypad">
-        <button class="my-button-icon">
-          <span class="fa fa-search fa-1x"></span>
-          Search
-        </button>
-
-        <button class="my-button-icon">
-          <span class="fa fa-list fa-1x"></span>
-          See categories
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- End my-floatheader -->
-
-<!--Begin my-sidebar-->
-<div class="my-sidebar">
-  <div id="background" onclick="myd_sideMenu()"></div>
-  <div id="menu">
-    <div id="menucontent" class="is-active">
-      <div id="menuheader" class="is-active">
-      </div>
-      <div>
-        <div class="menuitems">
-          <div>
-            <span class="fa fa-home fa-lg"></span>
-            <span class="text">Inicio</span>
-          </div>
-          <div>
-            <span class="fa fa-plus-circle fa-lg"></span>
-            <span class="text">Publica tu anuncio</span>
-          </div>
-          <div>
-            <span class="fa fa-facebook-official fa-lg"></span>
-            <span class="text">Grupos de Facebook</span>
-          </div>
-          <div>
-            <span class="fa fa-question-circle fa-lg"></span>
-            <span class="text">Quienes somos</span>
-          </div>
-          <div>
-            <span class="fa fa-search fa-lg"></span>
-            <span class="text">B&uacute;squeda</span>
-          </div>
-          <div>
-            <span class="fa fa-briefcase fa-lg"></span>
-            <span class="text">Trabaja con nosotros</span>
-          </div>
-          <div>
-            <span class="fa fa-play-circle fa-lg"></span>
-            <span class="text">Descarga nuestra app.</span>
-          </div>
-          <div>
-            <span class="fa fa-facebook-official fa-lg"></span>
-            <span class="text">S&iacute;guenos en Facebook</span>
-          </div>
-          <div>
-            <span class="fa fa-twitter-square fa-lg"></span>
-            <span class="text">S&iacute;guenos en Twitter</span>
-          </div>
-          <div>
-            <span class="fa fa-instagram fa-lg"></span>
-            <span class="text">S&iacute;guenos en Instagram</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--End my-sidebar-->
-
 <main>
-  <div class="my-container">
-    <article class="my-article">
-      <section class="my-section">
-        Section #1
-      </section>
-      <section class="my-section">
-        Section #2
-      </section>
-      <section class="my-section">
-        Section #3
-      </section>
-    </article>
-    <aside class="my-aside">
-      Aside
-    </aside>
-  </div>
-  <footer class="my-footer">
-    Footer
+  <header data-template="true" data-styles="">
+    loaded...
+  </header>
+  <section data-template="true" data-styles="">
+    loaded...
+  </section>
+  <footer data-template="true" data-styles="">
+    loaded...
   </footer>
 </main>
-
   </body>
 </html>
 

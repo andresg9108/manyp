@@ -1,6 +1,27 @@
 import glob, sys, shutil, time
 from os import mkdir, remove, path, scandir, getcwd
 
+def getTemplateContent(sInitialRouteHead):
+	sTemplateRoute = './settings/templates/'
+	sFile = 'index.html'
+	sKey = '<!--Route:'
+	aContentHead = getFileContent(sInitialRouteHead)
+	iQuantityContentHead = len(aContentHead)
+
+	if iQuantityContentHead > 0:
+		sFileHead = aContentHead[0]
+		sFileHead = sFileHead.replace(" ","").replace("\n","")
+		sKeyHead = sFileHead[:10]
+
+		if sKey == sKeyHead:
+			sFileHead = sFileHead.replace("<!--Route:","").replace("-->","")
+			sFile = sFileHead
+
+	sTemplateRoute = sTemplateRoute+sFile
+	aContentIndex = getFileContent(sTemplateRoute)
+
+	return aContentIndex
+
 def loadLogs(sFileLog):
 	if not path.isfile(sFileLog):
 		oFile = open(sFileLog, "w")
@@ -27,7 +48,7 @@ def loadLogs(sFileLog):
 	oFile.write(sDate+' '+sHour+' (Python [OK])')
 	oFile.close()
 
-def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
+def loadPagefiles(sInitialRoute, sFinalRoute):
 	sHead = 'head.html'
 	sBody = 'body.html'
 	sIndex = 'index.html'
@@ -47,8 +68,8 @@ def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
 	aContentHead = getFileContent(sInitialRoute+'/'+sHead)
 	aContentBody = getFileContent(sInitialRoute+'/'+sBody)
 	sRouteRoot = getRoot(sFinalRoute)
-
-	aContentIndex = getFileContent(sTemplateRoute)
+	
+	aContentIndex = getTemplateContent(sInitialRoute+'/'+sHead)
 	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '', [])
 	aContentIndex = getFileContent(sFinalRoute+'/'+sIndex)
 	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '<!--headHTML-->', aContentHead)
@@ -59,7 +80,8 @@ def loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute):
 	for sRoute in aInitialRoute:
 		sSonInitialRoute = sInitialRoute+'/'+sRoute
 		sSonFinalRoute = sFinalRoute+'/'+sRoute
-		loadPagefiles(sSonInitialRoute, sSonFinalRoute, sTemplateRoute)
+
+		loadPagefiles(sSonInitialRoute, sSonFinalRoute)
 
 def getRoot(sRoute):
 	sRoute = sRoute.replace("./","")
@@ -80,9 +102,20 @@ def writeIndexFile(sRoute, aContentIndex, sRouteRoot, sTag, aContentTag):
 			for sContentTag in aContentTag:
 				sLine = sLine + sContentTag
 			sLine = sLine + '\n'
+
 			sLine = sLine.replace("<<DIR>>", sRouteRoot)
+			if sRouteRoot == './':
+				sLine = sLine.replace("<<ROOT-DIR>>", '../')
+			else:
+				sLine = sLine.replace("<<ROOT-DIR>>", sRouteRoot+'../')
+
 		else:
 			sLine = sLine.replace("<<DIR>>", sRouteRoot)
+			if sRouteRoot == './':
+				sLine = sLine.replace("<<ROOT-DIR>>", '../')
+			else:
+				sLine = sLine.replace("<<ROOT-DIR>>", sRouteRoot+'../')
+
 		oFile.write(sLine)
 	
 	oFile.close()

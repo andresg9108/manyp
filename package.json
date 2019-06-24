@@ -1,6 +1,6 @@
 {
   "name": "manyp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "scripts": {
     "start": "grunt"
@@ -22,7 +22,10 @@
     "grunt-contrib-handlebars": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "handlebars": "^4.0.11",
     "matchdep": "^2.0.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.1.2",
+    "jquery": "^3.4.1"
   }
 }

@@ -5,7 +5,8 @@ module.exports = function(grunt) {
     // Python
     var aRoutePy = [
         './pages/*',
-        './settings/*'
+        './settings/*',
+        './settings/templates/*'
     ];
 
     // Log
@@ -14,7 +15,7 @@ module.exports = function(grunt) {
     // Handlebars
     var aRouteHbs = ['./src/template/*'];
     var oRouteHbs = {
-        'web/src/template/main.js': ['src/template/*.hbs']
+        'src/template/dist/main.js': ['src/template/*.hbs']
     };
     
     // Sass
@@ -29,15 +30,6 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        copy: {
-            js: {
-                expand: true,
-                cwd: 'src/',
-                src: ["js/*.js"],
-                dest: 'web/src/'
-            }
-        },
-
         sass: {
             dist: {
                 options: {
@@ -47,7 +39,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd:    "src/sass/",
                     src:    ["*.sass"],
-                    dest: "web/src/css/",
+                    dest: "src/css/",
                     ext:    ".css"
                 }]
             }
@@ -86,9 +78,8 @@ module.exports = function(grunt) {
                 files: aRouteHbs,
                 tasks: ['handlebars']
             },
-            load_js: {
-                files: aRouteJs,
-                tasks: ['copy:js']
+            load_js:{
+                files: aRouteJs
             }
         }
         

@@ -3,106 +3,23 @@
 var g_sRouteTemplate = 'src/template/';
 
 $(function(){
+	let oData = {};
+	loadTemplate('header', 'header', oData)
+	loadTemplate('body', 'section', oData)
+	loadTemplate('footer', 'footer', oData)
 });
 
 /*
 */
 function loadTemplate(sRouteTemplate, sTag, oData){
-	let sRoute = g_sRouteTemplate+sRouteTemplate+'.hbs';
-	let sTemplate = Hbs[sRoute](oData);
-	let isTemplate = $(sTag).attr('data-template');
-	if(isTemplate){
-		$(sTag).html(sTemplate);
-	}
+  let sRoute = g_sRouteTemplate+sRouteTemplate+'.hbs';
+  let sTemplate = Hbs[sRoute](oData);
+  let isTemplate = $(sTag).attr('data-template');
+  isTemplate = (isTemplate == 'true');
+  let sClassCss = $(sTag).attr('data-styles');
+  if(isTemplate){
+    $(sTag).removeClass();
+    $(sTag).addClass(sClassCss);
+    $(sTag).html(sTemplate);
+  }
 }
-
-// Begin MyDesign
-
-/*
-*/
-function myd_openFloatHeaderSearch(){
-    $('.my-floatheader-search').addClass('is-active');
-    $('.my-floatheader-search #search input').focus();
-}
-
-/*
-*/
-function myd_closeFloatHeaderSearch(){
-    $('.my-floatheader-search').removeClass('is-active');
-}
-
-/*
-*/
-function myd_floatHeaderMenu1(){
-    let oMenu = $(".my-floatheader-menu-1");
-    let iTime = 400;
-
-    if(oMenu.css('display') != 'none'){
-        oMenu.removeClass('is-active');
-    }else{
-        oMenu.addClass('is-active');
-    }
-}
-
-
-/*
-*/
-var autocompletedData = [
-"ActionScript",
-"AppleScript",
-"Asp",
-"BASIC",
-"C",
-"C++",
-"Clojure",
-"COBOL",
-"ColdFusion",
-"Erlang",
-"Fortran",
-"Groovy",
-"Haskell",
-"Java",
-"JavaScript",
-"Lisp",
-"Perl",
-"PHP",
-"Python",
-"Ruby",
-"Scala",
-"Scheme"
-];
-$(function(){
-	$( "#myinput" ).autocomplete({
-	source: autocompletedData
-	});
-	$( "#myinputm" ).autocomplete({
-	source: autocompletedData
-	});
-});
-
-/*
-*/
-function myd_sideMenu(){
-  let oBackground = $(".my-sidebar #background");
-  let oMenu = $(".my-sidebar #menu");
-    let iTime = 400;
-
-    if(oBackground.css('display') != 'block'){
-      oBackground.css('display','block');
-
-      oMenu.animate({
-        width: '100%'
-      }, iTime, function() {
-        oMenu.addClass('is-active');
-      });
-    }else{
-      oMenu.removeClass('is-active');
-      oMenu.animate({
-        width: 0
-      }, iTime, function() {
-        oBackground.css('display','none');
-      });
-    }
-}
-
-// End MyDesign

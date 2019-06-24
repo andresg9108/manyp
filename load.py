@@ -2,7 +2,6 @@
 import sys
 from settings import useful
 
-sTemplateRoute = './settings/index.html'
 sInitialRoute = './pages'
 sFinalRoute = './web'
 sFileLog = './manyp.log'
@@ -12,7 +11,7 @@ sArgv = sys.argv[1]
 
 if sArgv == '-l':
 	useful.deleteFilesOrDirectories(sFinalRoute, aIgnore)
-	useful.loadPagefiles(sInitialRoute, sFinalRoute, sTemplateRoute)
+	useful.loadPagefiles(sInitialRoute, sFinalRoute)
 	useful.loadLogs(sFileLog)
 
 	print('OK')
