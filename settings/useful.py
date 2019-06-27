@@ -65,16 +65,41 @@ def loadPagefiles(sInitialRoute, sFinalRoute):
 		oFile = open(sInitialRoute+'/'+sBody,"w")
 		oFile.close()
 
+	aContentIndex = getTemplateContent(sInitialRoute+'/'+sHead)
 	aContentHead = getFileContent(sInitialRoute+'/'+sHead)
 	aContentBody = getFileContent(sInitialRoute+'/'+sBody)
 	sRouteRoot = getRoot(sFinalRoute)
-	
-	aContentIndex = getTemplateContent(sInitialRoute+'/'+sHead)
-	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '', [])
-	aContentIndex = getFileContent(sFinalRoute+'/'+sIndex)
-	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '<!--headHTML-->', aContentHead)
-	aContentIndex = getFileContent(sFinalRoute+'/'+sIndex)
-	writeIndexFile(sFinalRoute+'/'+sIndex, aContentIndex, sRouteRoot, '<!--bodyHTML-->', aContentBody)
+
+	iCount = 0
+	for sLine in aContentIndex:
+		if(sLine.replace(" ","").replace("\n","") == "<!--headHTML-->"):
+			sLine = ""
+			for sLine2 in aContentHead:
+				sLine = sLine + sLine2
+			aContentIndex[iCount] = sLine
+		elif(sLine.replace(" ","").replace("\n","") == "<!--bodyHTML-->"):
+			sLine = ""
+			for sLine2 in aContentBody:
+				sLine = sLine + sLine2
+			aContentIndex[iCount] = sLine
+
+		aContentIndex[iCount] = sLine
+		iCount = iCount + 1
+
+	iCount = 0
+	for sLine in aContentIndex:
+		sLine = sLine.replace("<<DIR>>", sRouteRoot)
+		if sRouteRoot == './':
+			sLine = sLine.replace("<<ROOT-DIR>>", '../')
+		else:
+			sLine = sLine.replace("<<ROOT-DIR>>", sRouteRoot+'../')
+
+		aContentIndex[iCount] = sLine
+		iCount = iCount + 1
+
+	oFile = open(sFinalRoute+'/'+sIndex, "w")
+	oFile.writelines(aContentIndex)
+	oFile.close()
 
 	aInitialRoute = lsDirectories(sInitialRoute)
 	for sRoute in aInitialRoute:
@@ -92,33 +117,6 @@ def getRoot(sRoute):
 	if sRouteRoot == '':
 		return './'
 	return sRouteRoot
-
-def writeIndexFile(sRoute, aContentIndex, sRouteRoot, sTag, aContentTag):
-	oFile = open(sRoute, "w")
-
-	for sLine in aContentIndex:
-		if(sLine.replace(" ","").replace("\n","") == sTag):
-			sLine = ''
-			for sContentTag in aContentTag:
-				sLine = sLine + sContentTag
-			sLine = sLine + '\n'
-
-			sLine = sLine.replace("<<DIR>>", sRouteRoot)
-			if sRouteRoot == './':
-				sLine = sLine.replace("<<ROOT-DIR>>", '../')
-			else:
-				sLine = sLine.replace("<<ROOT-DIR>>", sRouteRoot+'../')
-
-		else:
-			sLine = sLine.replace("<<DIR>>", sRouteRoot)
-			if sRouteRoot == './':
-				sLine = sLine.replace("<<ROOT-DIR>>", '../')
-			else:
-				sLine = sLine.replace("<<ROOT-DIR>>", sRouteRoot+'../')
-
-		oFile.write(sLine)
-	
-	oFile.close()
 
 def getFileContent(sRoute):
 	aContent = []
