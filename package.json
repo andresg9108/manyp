@@ -1,20 +1,17 @@
 {
   "name": "manyp",
   "version": "0.1.0",
-  "description": "",
+  "description": "Project designed for frontend software development.",
   "scripts": {
     "start": "grunt"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andresg9108/manyp.git"
+    "url": "https://github.com/andresg9108/manyp"
   },
   "author": "Andres Gonzalez",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/andresg9108/manyp/issues"
-  },
-  "homepage": "https://github.com/andresg9108/manyp#readme",
+  "license": "MIT",
+  "homepage": "https://github.com/andresg9108/manyp",
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib": "^0.11.0",
