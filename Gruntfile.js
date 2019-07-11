@@ -23,8 +23,10 @@ module.exports = function(grunt) {
 
     // Js
     var aRouteJs = ['./src/js/*'];
+    var oRouteJs = {
+        'src/js/dist/main.min.js': ['src/js/*.js']
+    };
 
-    // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
@@ -39,7 +41,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd:    "src/sass/",
                     src:    ["*.sass"],
-                    dest: "src/css/",
+                    dest: "src/css/dist/",
                     ext:    ".css"
                 }]
             }
@@ -54,6 +56,15 @@ module.exports = function(grunt) {
           }
         },
 
+        uglify: {
+            dev: {
+                options: {
+                    sourceMap: true
+                },
+                files: oRouteJs
+            }
+        },
+
         watch: {
             files: ['*.*'],
             options: {
@@ -63,23 +74,24 @@ module.exports = function(grunt) {
                     port: 35729
                 }
             },
-            load_py: {
+            task_py: {
                 files: aRoutePy,
                 tasks: ['tPy']
             },
-            load_log: {
+            task_log: {
                 files: aLog
             },
-            load_sass: {
+            task_sass: {
                 files: aRouteSass,
                 tasks: ['sass']
             },
-            load_handlebars: {
+            task_handlebars: {
                 files: aRouteHbs,
                 tasks: ['handlebars']
             },
-            load_js:{
-                files: aRouteJs
+            task_js:{
+                files: aRouteJs,
+                tasks: ['uglify']
             }
         }
         
@@ -96,9 +108,6 @@ module.exports = function(grunt) {
             fs.readFile(sFileLogs, 'utf8', function(err, data){
                 if (!err) {
                     let oDate = new Date();
-                    /*let iHour = oDate.getHours();
-                    let iMinutes = oDate.getMinutes();
-                    let iSeconds = oDate.getSeconds();*/
 
                     let sWrite = data + '\n';
                     sWrite += oDate+' (Grunt [OK])';
@@ -114,6 +123,6 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.loadNpmTasks('grunt-contrib');
     grunt.loadNpmTasks('grunt-contrib-handlebars');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 };
