@@ -1,64 +1,51 @@
-Manual to move from version v0.1.2 to v0.2.0
+Manual to move from version v0.2.0 to v0.3.0
 
-1- Update file README.md.
-__________________________
+1- Execute:
+* Execute "npm i processpy --save-dev", in the root of the project.
+* Execute "npm i grunt-contrib-processpy --save-dev", in the root of the project.
+___________________________
 
-2- Execute "npm install grunt-contrib-uglify --save-dev", in the root of the project.
-__________________________
+2- Pass all the files from "settings/templates/" to "pageTemplates/".
+3- Delete "settings" folder.
+4- Delete "load.py" file.
+5- Delete "manyp.log" file.
+___________________________
 
-3- File Gruntfile.js
-* Delete line "grunt.loadNpmTasks('grunt-contrib');".
-* Add line "grunt.loadNpmTasks('grunt-contrib-uglify');".
-* Add the next lines:
-var aRouteJs = ['./src/js/*'];
-var oRouteJs = { <--- Start new lines
-    'src/js/dist/main.min.js': ['src/js/*.js']
-}; <--- End new lines
-* Add the task:
-uglify: {
-    dev: {
-        options: {
-            sourceMap: true
-        },
-        files: oRouteJs
-    }
+6- File: Gruntfile.js
+
+* Delete task "grunt.registerTask('tPy',....".
+
+* Add line "grunt.loadNpmTasks('grunt-contrib-processpy');".
+
+* Update object of JavaScript
+
+var aRoutePy = [
+    './pages/*',
+    './settings/*',
+    './settings/templates/*'
+];
+
+to
+
+var aRoutePy = [
+    './pages/*',
+    './pageTemplates/*'
+];
+
+* Update object of JavaScript
+
+task_py: {
+    files: aRoutePy,
+    tasks: ['tPy']
 },
-* In the "watch" of "task_js", add:
-task_js:{
-    files: aRouteJs,
-    tasks: ['uglify'] <----
-}
-* Update one line in task "sass"
-sass: {
-    dist: {
-        options: {
-            style: 'compressed', noCache: true
-        },
-        files: [{
-            expand: true,
-            cwd:    "src/sass/",
-            src:    ["*.sass"],
-            dest: "src/css/dist/", <----
-            ext:    ".css"
-        }]
-    }
+
+to
+
+task_py: {
+    files: aRoutePy,
+    tasks: ['process-html']
 },
-__________________________
+___________________________
 
-4- File settings/templates/index.html
-* Delete line <script src="<<ROOT-DIR>>src/js/main.js"></script>
-* Add line <script src="<<ROOT-DIR>>src/js/dist/main.min.js"></script>
-* Delete line <link rel="stylesheet" type="text/css" href="<<ROOT-DIR>>src/css/main.css" />
-* Add line <link rel="stylesheet" type="text/css" href="<<ROOT-DIR>>src/css/dist/main.css" />
-
-5- Delete files
-* src/css/main.css
-* src/css/main.css.map
-
-Note: As in this version you start using "grunt-contrib-uglify" it is better not to use "let" to define variables in "JavaScript" and use "var".
-
-5- Update files
-* Delete src/js/main.js
-* src/js/main.js -> src/js/app.js
 
 Ok, updated project.

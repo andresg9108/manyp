@@ -5,8 +5,7 @@ module.exports = function(grunt) {
     // Python
     var aRoutePy = [
         './pages/*',
-        './settings/*',
-        './settings/templates/*'
+        './pageTemplates/*'
     ];
 
     // Log
@@ -76,7 +75,7 @@ module.exports = function(grunt) {
             },
             task_py: {
                 files: aRoutePy,
-                tasks: ['tPy']
+                tasks: ['process-html']
             },
             task_log: {
                 files: aLog
@@ -97,32 +96,8 @@ module.exports = function(grunt) {
         
     });
 
-    grunt.registerTask('tPy', function(){
-        grunt.util.spawn({
-            opts: {
-                stdio: 'inherit'
-            },
-            cmd: 'python',
-            args: ['load.py', '-l'],
-        }, function(error, result, code){
-            fs.readFile(sFileLogs, 'utf8', function(err, data){
-                if (!err) {
-                    let oDate = new Date();
-
-                    let sWrite = data + '\n';
-                    sWrite += oDate+' (Grunt [OK])';
-                    fs.writeFile(sFileLogs, sWrite, function (err) {
-                        if (err) {
-                            return console.log(err);
-                        }
-                        console.log("Grunt [OK]");
-                    });
-                }
-            });
-        });
-    });
-
     grunt.registerTask('default', ['watch']);
     grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-processpy');
 };
