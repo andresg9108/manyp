@@ -1,3 +1,14 @@
 Manual to move from version v0.2.0 to v0.3.0
 
+1- Execute "npm i processpy --save-dev", in the root of the project.
+2- Pass all the files from "settings/templates/" to "pageTemplates/".
+3- Delete "settings" folder.
+4- Delete "load.py" file.
+5- Delete "manyp.log" file.
+___________________________
+
+6- File: Gruntfile.js
+* Update line "args: ['load.py', '-l']," to: "args: ['node_modules/processpy/process.py', '-html'],".
+___________________________
+
 Ok, updated project.

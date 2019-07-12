@@ -103,7 +103,7 @@ module.exports = function(grunt) {
                 stdio: 'inherit'
             },
             cmd: 'python',
-            args: ['load.py', '-l'],
+            args: ['node_modules/processpy/process.py', '-html'],
         }, function(error, result, code){
             fs.readFile(sFileLogs, 'utf8', function(err, data){
                 if (!err) {
