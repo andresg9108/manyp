@@ -5,8 +5,7 @@ module.exports = function(grunt) {
     // Python
     var aRoutePy = [
         './pages/*',
-        './settings/*',
-        './settings/templates/*'
+        './pageTemplates/*'
     ];
 
     // Log

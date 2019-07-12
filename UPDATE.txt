@@ -11,4 +11,20 @@ ___________________________
 * Update line "args: ['load.py', '-l']," to: "args: ['node_modules/processpy/process.py', '-html'],".
 ___________________________
 
+7- Update object of JavaScript in Gruntfile.js
+
+var aRoutePy = [
+    './pages/*',
+    './settings/*',
+    './settings/templates/*'
+];
+
+to
+
+var aRoutePy = [
+    './pages/*',
+    './pageTemplates/*'
+];
+
+
 Ok, updated project.
