@@ -1,51 +1,12 @@
-Manual to move from version v0.2.0 to v0.3.0
+Manual to move from version v0.3.0 to v0.3.1
 
-1- Execute:
-* Execute "npm i processpy --save-dev", in the root of the project.
-* Execute "npm i grunt-contrib-processpy --save-dev", in the root of the project.
-___________________________
+1- Delete file manyp.log
+________________________
 
-2- Pass all the files from "settings/templates/" to "pageTemplates/".
-3- Delete "settings" folder.
-4- Delete "load.py" file.
-5- Delete "manyp.log" file.
-___________________________
-
-6- File: Gruntfile.js
-
-* Delete task "grunt.registerTask('tPy',....".
-
-* Add line "grunt.loadNpmTasks('grunt-contrib-processpy');".
-
-* Update object of JavaScript
-
-var aRoutePy = [
-    './pages/*',
-    './settings/*',
-    './settings/templates/*'
-];
-
-to
-
-var aRoutePy = [
-    './pages/*',
-    './pageTemplates/*'
-];
-
-* Update object of JavaScript
-
-task_py: {
-    files: aRoutePy,
-    tasks: ['tPy']
-},
-
-to
-
-task_py: {
-    files: aRoutePy,
-    tasks: ['process-html']
-},
-___________________________
-
+2- In "package.json" file:
+* Update line ["processpy": "^0.1.1"] 
+By "processpy": "^0.1.2"
+* Update line ["grunt-contrib-processpy": "^0.1.1",]
+By "grunt-contrib-processpy": "^0.1.2",
 
 Ok, updated project.
