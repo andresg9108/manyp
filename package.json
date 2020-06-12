@@ -1,6 +1,6 @@
 {
   "name": "manyp",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Project designed for frontend software development.",
   "scripts": {
     "start": "grunt"
@@ -13,18 +13,18 @@
   "license": "MIT",
   "homepage": "https://github.com/andresg9108/manyp",
   "devDependencies": {
-    "grunt": "^1.0.4",
+    "grunt": "^1.1.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-handlebars": "^1.0.0",
-    "grunt-contrib-processpy": "^0.1.2",
+    "grunt-contrib-handlebars": "^2.0.0",
+    "grunt-contrib-processpy": "^0.2.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "matchdep": "^2.0.0",
-    "processpy": "^0.1.2"
+    "processpy": "^0.2.2"
   },
   "dependencies": {
-    "handlebars": "^4.1.2",
-    "jquery": "^3.4.1"
+    "handlebars": "^4.7.6",
+    "jquery": "^3.5.1"
   }
 }
