@@ -8,6 +8,9 @@
 2. [Dependencies.](#Dependencies "Dependencies")
 3. [Starting.](#Starting "Starting")
 4. [HTML templates.](#HtmlTemplates "HTML templates")
+5. [Handlebars templates.](#HandlebarsTemplates "Handlebars templates")
+6. [Using SASS.](#UsingSASS "Using SASS")
+7. [Using JavaScript](#UsingJavaScript "Using JavaScript")
 
 <span id="Introduction"></span>
 ## Introduction ##
@@ -170,3 +173,124 @@ If you don't specify a template for each page you create, the program will defau
 ~~~
 
 See how the first line indicates "<!-Route: temp2.html->", which tells this page which template to use, which in this case is "temp2.html. If all goes well, we will have two pages using two different templates.
+
+<span id="HandlebarsTemplates"></span>
+## Handlebars templates ##
+
+We already know that the templates are in the "../src/template/" directory, now we will create two new templates to see how it works, which we will call "theme1.hbs" and "theme2.hbs".
+
+**File: ../src/template/theme1.hbs**
+
+~~~
+<h1>This is my theme #1</h1>
+~~~
+
+**File: ../src/template/theme2.hbs**
+
+~~~
+<h1>This is my theme #2 [{{hello}}]</h1>
+~~~
+
+Now we will modify the file "../pages/body.html", adding two labels of type "section" called "theme1" and "theme2", as shown below.
+
+**File: ../pages/body.html**
+
+~~~
+<main>
+  <header id="head" data-template="true" data-styles="">
+    loaded...
+  </header>
+  <section id="body" data-template="true" data-styles="">
+    loaded...
+  </section>
+
+  <section id="theme1" data-template="true" data-styles="">
+    loaded...
+  </section>
+  <section id="theme2" data-template="true" data-styles="">
+    loaded...
+  </section>
+
+  <footer id="foot" data-template="true" data-styles="">
+    loaded...
+  </footer>
+</main>
+~~~
+
+Now we will modify the file "../src/js/appMain.js", adding the lines that load the two new templates, as follows:
+
+**File: ../src/js/appMain.js**
+
+~~~
+...
+$(function(){
+  var oData = {};
+  oAppMain.loadTemplate('header', '#head', oData);
+  oAppMain.loadTemplate('body', '#body', oData);
+  oAppMain.loadTemplate('footer', '#foot', oData);
+
+  oAppMain.loadTemplate('theme1', '#theme1', oData);
+  oData = {
+    'hello': 'Hello World'
+  };
+  oAppMain.loadTemplate('theme2', '#theme2', oData);
+});
+...
+~~~
+
+See how the "oAppMain.loadTemplate(parameter1, parameter2, parameter3)" function is used to add new templates, where the first parameter is the name of the template, the second parameter is the ID where the template is loaded and the third parameter is the data that is send the template.
+
+Note: "grunt" may have problems loading new files, so it is recommended to stop the console using Ctrl + C, run "npm start" again and try to save the changes again.
+
+<span id="UsingSASS"></span>
+## Using SASS ##
+
+We start creating a file called "example.sass" in the path "../src/sass/", in which we will add the following lines:
+
+**File: ../src/sass/_example.sass**
+
+~~~
+$sBackgroundColor: #5555ff
+$sFontColor: #ffffff
+
+main
+  background-color: $sBackgroundColor
+  color: $sFontColor
+~~~
+
+Now we will modify the file "../src/sass/main.sass", as follows:
+
+**File: ../src/sass/main.sass**
+
+~~~
+@import 'example'
+
+*
+  margin: 0
+  padding: 0
+~~~
+
+We see how the "@import 'example'" line is agreed, which adds our new file to the main SASS file (main.sass). If everything goes well you will see the changes in the browser.
+
+Note: "grunt" may have problems loading new files, so it is recommended to stop the console using Ctrl + C, run "npm start" again and try to save the changes again.
+
+<span id="UsingJavaScript"></span>
+## Using JavaScript ##
+
+We start creating a file called "example.js" in the path "../src/js/", in which we will add the following lines:
+
+**File: ../src/js/example.js**
+
+~~~
+"use strict";
+
+$(function(){
+  var hello = "Hello World!!!"
+
+  console.log(hello);
+});
+~~~
+
+If you go to the browser again and open its console, you will see the changes.
+
+Note: "grunt" may have problems loading new files, so it is recommended to stop the console using Ctrl + C, run "npm start" again and try to save the changes again.
