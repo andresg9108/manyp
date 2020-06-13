@@ -53,7 +53,7 @@ Also, it is recommended to add the "Livereload" extension for "Google Chrome" or
 
 With this we can do our first test modifying the following file.
 
-File: ../xampp/onep/src/template/body.hbs
+File: ../xampp/manyp/src/template/body.hbs
 
 ~~~
 <h2>Hello World!!!</h2>
