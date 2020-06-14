@@ -26,6 +26,7 @@ This project aims to provide an alternative to creating websites.
 - XAMPP (https://www.apachefriends.org/es/index.html).
 - Execute "gem install sass" on the console of your operating system.
 - Execute "npm i grunt -g" on the console of your operating system.
+- Execute "npm i install-here -g" on the console of your operating system.
 
 <span id="Starting"></span>
 ## Starting ##
