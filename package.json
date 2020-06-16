@@ -1,7 +1,7 @@
 {
   "name": "manyp-ag",
-  "version": "0.3.3",
-  "description": "Project designed for frontend software development.",
+  "version": "0.3.4",
+  "description": "This project aims to provide an alternative to creating websites.",
   "scripts": {
     "start": "grunt"
   },

@@ -1,6 +1,5 @@
-Manual to move from version v0.3.2 to v0.3.3
+Manual to move from version v0.3.3 to v0.3.4
 
-1- Updating Node.js packages.
-2- README.md file update.
+1- README.md file update.
 
 Ok, updated project.
