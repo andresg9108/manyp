@@ -1,5 +1,21 @@
-Manual to move from version v0.3.3 to v0.3.4
+Manual to move from version v0.3.4 to v0.4.0
 
-1- README.md file update.
+1. Update all packages.
+
+2. Gruntfile.js, add:
+processpy: {
+    rts: [{
+        folder: './pageTemplates',
+        search: '<<ROOT-DIR>>',
+        replace: '<<DIR>>'
+    }]
+},
+
+3. package.json, update:
+"scripts": {
+"start": "grunt",
+"html": "grunt process-html",
+"rts": "grunt process-rts"
+},
 
 Ok, updated project.
