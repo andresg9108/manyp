@@ -69,6 +69,10 @@ module.exports = function(grunt) {
                 folder: './pageTemplates',
                 search: '<<ROOT-DIR>>',
                 replace: '<<DIR>>'
+            },{
+                folder: './pages',
+                search: '<<ROOT-DIR>>',
+                replace: '<<DIR>>'
             }]
         },
 

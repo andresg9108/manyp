@@ -2,10 +2,14 @@ Manual to move from version v0.3.4 to v0.4.0
 
 1. Update all packages.
 
-2. Gruntfile.js, add "rts":
+2. Gruntfile.js, add "processpy":
 processpy: {
     rts: [{
         folder: './pageTemplates',
+        search: '<<ROOT-DIR>>',
+        replace: '<<DIR>>'
+    },{
+        folder: './pages',
         search: '<<ROOT-DIR>>',
         replace: '<<DIR>>'
     }]
