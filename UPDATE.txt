@@ -2,7 +2,7 @@ Manual to move from version v0.3.4 to v0.4.0
 
 1. Update all packages.
 
-2. Gruntfile.js, add:
+2. Gruntfile.js, add "rts":
 processpy: {
     rts: [{
         folder: './pageTemplates',
@@ -13,9 +13,11 @@ processpy: {
 
 3. package.json, update:
 "scripts": {
-"start": "grunt",
-"html": "grunt process-html",
-"rts": "grunt process-rts"
+	"start": "grunt",
+	"html": "grunt process-html",
+	"rts": "grunt process-rts"
 },
+
+4. package.json, Remove processpy from the list of devDependencies.
 
 Ok, updated project.
