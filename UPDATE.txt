@@ -1,27 +1,21 @@
-Manual to move from version v0.3.4 to v0.4.0
+Manual to move from version v0.4.0 to v1.0.0
 
-1. Update all packages.
+1. Add the following "scripts" in the package.json.
 
-2. Gruntfile.js, add "processpy":
-processpy: {
-    rts: [{
-        folder: './pageTemplates',
-        search: '<<ROOT-DIR>>',
-        replace: '<<DIR>>'
-    },{
-        folder: './pages',
-        search: '<<ROOT-DIR>>',
-        replace: '<<DIR>>'
-    }]
-},
+- "uglify": "grunt uglify"
+- "sass": "grunt sass"
+- "hbs": "grunt handlebars"
 
-3. package.json, update:
-"scripts": {
-	"start": "grunt",
-	"html": "grunt process-html",
-	"rts": "grunt process-rts"
-},
+2. Modify the "aLog" array in the Gruntfile.js file as follows.
 
-4. package.json, Remove processpy from the list of devDependencies.
+var aLog = ['./processpy.log'];
+
+3. Modify the ".gitignore" file with the following lines.
+
+/node_modules
+/web
+/src/css/dist
+/src/js/dist
+/src/template/dist
 
 Ok, updated project.

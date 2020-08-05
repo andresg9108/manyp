@@ -1,11 +1,14 @@
 {
   "name": "manyp-ag",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "This project aims to provide an alternative to creating websites.",
   "scripts": {
     "start": "grunt",
+    "rts": "grunt process-rts",
     "html": "grunt process-html",
-    "rts": "grunt process-rts"
+    "sass": "grunt sass",
+    "hbs": "grunt handlebars",
+    "uglify": "grunt uglify"
   },
   "repository": {
     "type": "git",
