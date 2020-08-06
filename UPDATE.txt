@@ -3,6 +3,7 @@ Manual to move from version v0.4.0 to v1.0.0
 1. run the following command at the root of the project.
 
 npm install npm-run-all --save-dev
+npm install shelljs --save-dev
 
 2. Add the following "scripts" in the package.json.
 
@@ -10,6 +11,7 @@ npm install npm-run-all --save-dev
 - "sass": "grunt sass"
 - "hbs": "grunt handlebars"
 - "prepare": "npm-run-all html sass hbs uglify"
+- "prepare-dist": "npm-run-all rts html sass hbs uglify"
 
 3. Modify the "aLog" array in the Gruntfile.js file as follows.
 
@@ -31,5 +33,7 @@ var aLog = ['./processpy.log'];
 - /src/template/dist
 
 6. The README.md file has changed.
+
+7. Add new shell.js file.
 
 Ok, updated project.
