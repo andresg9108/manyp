@@ -1,11 +1,16 @@
 {
   "name": "manyp-ag",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "This project aims to provide an alternative to creating websites.",
   "scripts": {
     "start": "grunt",
+    "rts": "grunt process-rts",
     "html": "grunt process-html",
-    "rts": "grunt process-rts"
+    "sass": "grunt sass",
+    "hbs": "grunt handlebars",
+    "uglify": "grunt uglify",
+    "prepare": "npm-run-all html sass hbs uglify",
+    "prepare-dist": "npm-run-all rts html sass hbs uglify"
   },
   "repository": {
     "type": "git",
@@ -15,14 +20,16 @@
   "license": "MIT",
   "homepage": "https://github.com/andresg9108/manyp",
   "devDependencies": {
-    "grunt": "^1.1.0",
+    "grunt": "^1.2.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-handlebars": "^2.0.0",
     "grunt-contrib-processpy": "^0.3.1",
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
-    "matchdep": "^2.0.0"
+    "matchdep": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "shelljs": "^0.8.4"
   },
   "dependencies": {
     "handlebars": "^4.7.6",
