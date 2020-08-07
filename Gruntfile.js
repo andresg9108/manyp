@@ -14,7 +14,7 @@ module.exports = function(grunt) {
     // Handlebars
     var aRouteHbs = ['./src/template/*'];
     var oRouteHbs = {
-        'src/template/dist/main.js': ['src/template/*.hbs']
+        'src/template/dist/main.min.js': ['src/template/*.hbs']
     };
     
     // Sass
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
                     cwd:    "src/sass/",
                     src:    ["*.sass"],
                     dest: "src/css/dist/",
-                    ext:    ".css"
+                    ext:    ".min.css"
                 }]
             }
         },
