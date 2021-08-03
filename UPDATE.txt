@@ -1,5 +1,6 @@
 Manual to move from version v1.0.0 to v1.0.1
 
 1. Run "npm update".
+2. Update the README.md file.
 
 Ok, updated project.

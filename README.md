@@ -33,7 +33,7 @@ This project aims to provide an alternative to creating websites.
 <span id="Starting"></span>
 ## Starting ##
 
-In principle, don't forget to open the "XAMPP Control Panel" and start the "Apache" service. Now we will create a folder called "myproject" in the path of the "XAMPP" file, which would be left with the following path "../xampp/htdocs/myproject". With the folder ready, we can now access it using the console of your operating system and execute the following command, which brings all the files from the "manyp" project.
+We will start by opening the "XAMPP Control Panel" and starting the "Apache" service. Now we can create a folder called "myproject" in the path of the "XAMPP" file and which is normally in the path "../xampp/htdocs/" if it has not been changed. With the folder ready, we can now access it using the console of your operating system and execute the following command that brings up all the files from the "manyp" project.
 
 ~~~
 install-here manyp-ag
@@ -45,17 +45,17 @@ Then we execute the following command that brings all the dependencies of the "m
 npm i
 ~~~
 
-Now we can execute the following command, that makes our project listen to the changes and automatically execute the corresponding commands.
+Now we can execute the following command that makes our project be aware of the changes to automatically execute the corresponding commands.
 
 ~~~
 npm start
 ~~~
 
-In the development phase, the project must always be listening to changes. With this we can already enter the following URL and see our project for the first time.
+In the development phase, the project must always be attentive to changes and to exit you just have to use Ctrl + C. With this we can enter the following URL and see our project for the first time.
 
 **http://localhost/myproject/web/**
 
-Also, it is recommended to add the "Livereload" extension for "Google Chrome" or "Mozilla Firefox". This will instruct these browsers to refresh the page the moment they detect a change, but remember to listen to the project with the "npm start" command and activate "Livereload" in the browser you want.
+Also it is recommended to add the extension "Livereload" for "Google Chrome" or "Mozilla Firefox". This will tell these browsers to refresh the page the moment they detect a change, but always remember to run the "npm start" command and activate "Livereload" in your browser.
 
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
@@ -80,6 +80,8 @@ If all goes well, you will see the changes in the browser. Each of the most rele
 * "../web/": Contains project production files.
 * "../Gruntfile.js": Stores all grunt settings.
 * "../package.json": Stores all Node.js settings.
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 <span id="HtmlTemplates"></span>
 ## HTML templates ##
