@@ -2,5 +2,14 @@ Manual to move from version v1.0.0 to v1.0.1
 
 1. Run "npm update".
 2. Update the README.md file.
+3. Update the Gruntfile.js file.
+
+- Removing the following lines.
+
+	grunt.loadNpmTasks('grunt-contrib-handlebars');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-processpy');
+
+- Delete variable sFileLogs
 
 Ok, updated project.

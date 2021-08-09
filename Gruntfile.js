@@ -1,15 +1,14 @@
-var sFileLogs = './manyp.log';
 const fs = require('fs');
 
 module.exports = function(grunt) {
+    // Log
+    var aLog = ['./processpy.log'];
+
     // Python
     var aRoutePy = [
         './pages/*',
         './pageTemplates/*'
     ];
-
-    // Log
-    var aLog = ['./processpy.log'];
 
     // Handlebars
     var aRouteHbs = ['./src/template/*'];
@@ -85,12 +84,12 @@ module.exports = function(grunt) {
                     port: 35729
                 }
             },
+            task_log: {
+                files: aLog
+            },
             task_py: {
                 files: aRoutePy,
                 tasks: ['process-html']
-            },
-            task_log: {
-                files: aLog
             },
             task_sass: {
                 files: aRouteSass,
@@ -109,7 +108,4 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('default', ['watch']);
-    grunt.loadNpmTasks('grunt-contrib-handlebars');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-processpy');
 };

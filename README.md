@@ -81,12 +81,68 @@ If all goes well, you will see the changes in the browser. Each of the most rele
 * "../Gruntfile.js": Stores all grunt settings.
 * "../package.json": Stores all Node.js settings.
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
-
 <span id="HtmlTemplates"></span>
 ## HTML templates ##
 
-...(Pending for documentation)...
+All HTML templates for the project are stored in the "./pageTemplates" directory. We will start by opening the file "./pageTemplates/index.html" to take a look, we see that they are common HTML tags with the exception of "<<ROOT-DIR>>", "<!-headHTML->" and "<!-bodyHTML->" explained below.
+
+* "<<ROOT-DIR>>": You can use this instruction so that when the production files are updated, the root of the project appears instead. So if you put "<<ROOT-DIR>>src/example/main.min.js" it will appear "../../src/example/main.min.js" in the production files and no matter in what folder tree location is located, he will put you the root of the project.
+* "<!-headHTML->": You can use this statement so that the unique HTML tags in the page header appear instead when the production files are updated.
+* "<!-bodyHTML->": You can use this statement so that the unique HTML tags in the page body appear instead when the production files are updated.
+
+Now we are about to create our first HTML template that will contain the following lines and will be called "temp2.html".
+
+**File: ./pageTemplates/temp2.html**
+
+~~~
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--headHTML-->
+  </head>
+  <body>
+    <div style="background-color: blue; color: white;">
+      <!--bodyHTML-->
+    </div>
+  </body>
+</html>
+~~~
+
+We will also create a new page by adding a new folder inside "./pages" and calling it "page2". When creating a new page we must also update the "aRoutePy" array in the "Gruntfile.js" file as follows.
+
+~~~
+...
+var aRoutePy = [
+	'./pages/*',
+	'./pageTemplates/*',
+	'./pages/page2/*'
+];
+...
+~~~
+
+Now we can modify the following files.
+
+**File: ./pages/page2/head.html**
+
+~~~
+<!--Route: temp2.html-->
+<title>This is my page number 2.</title>
+<script>
+	console.log('Hello World!!!');
+</script>
+~~~
+
+**File: ./pages/page2/body.html**
+
+~~~
+<h1>Hello, this is my page number 2.</h1>
+~~~
+
+See how the first line of the "head.html" file shows "<! - Route: temp2.html->" which tells our page which HTML template to use.
+
+***Note: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that the changes in the "Gruntfile.js" file are recognized. If it is necessary to re-save the changes made for the production files to be updated.***
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 <span id="HandlebarsTemplates"></span>
 ## Handlebars templates ##
