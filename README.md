@@ -84,7 +84,7 @@ If all goes well, you will see the changes in the browser. Each of the most rele
 <span id="HtmlTemplates"></span>
 ## HTML templates ##
 
-All HTML templates for the project are stored in the "./pageTemplates" directory. We will start by opening the file "./pageTemplates/index.html" to take a look, we see that they are common HTML tags with the exception of "&lt;&lt;ROOT-DIR&gt;&gt;", "<!-headHTML->" and "<!-bodyHTML->" explained below.
+All HTML templates for the project are stored in the "./pageTemplates" directory. We will start by opening the file "./pageTemplates/index.html" to take a look, we see that they are common HTML tags with the exception of "&lt;&lt;ROOT-DIR&gt;&gt;", "&lt;!&#45;headHTML&#45;&#45;&gt;" and "<!-bodyHTML->" explained below.
 
 * "&lt;&lt;ROOT-DIR&gt;&gt;": You can use this instruction so that when the production files are updated, the root of the project appears instead. So if you put "&lt;&lt;ROOT-DIR&gt;&gt;src/example/main.min.js" it will appear "../../src/example/main.min.js" in the production files and no matter in what folder tree location is located, he will put you the root of the project.
 * "<!-headHTML->": You can use this statement so that the unique HTML tags in the page header appear instead when the production files are updated.
