@@ -138,7 +138,7 @@ Now we can modify the following files.
 <h1>Hello, this is my page number 2.</h1>
 ~~~
 
-See how the first line of the "head.html" file shows "<! - Route: temp2.html->" which tells our page which HTML template to use.
+See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp2.html&#45;&#45;&gt;" which tells our page which HTML template to use.
 
 ***Note: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that the changes in the "Gruntfile.js" file are recognized. If it is necessary to re-save the changes made for the production files to be updated.***
 
