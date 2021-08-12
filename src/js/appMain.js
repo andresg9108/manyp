@@ -4,10 +4,6 @@ var g_sRouteTemplate = 'src/template/';
 var oAppMain = {};
 
 $(function(){
-	var oData = {};
-	oAppMain.loadTemplate('section1', '#section1', oData);
-	oAppMain.loadTemplate('section2', '#section2', oData);
-	oAppMain.loadTemplate('section3', '#section3', oData);
 });
 
 /*

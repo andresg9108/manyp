@@ -11,18 +11,28 @@ module.exports = function(grunt) {
     ];
 
     // Handlebars
-    var aRouteHbs = ['./src/template/*'];
+    var aRouteHbs = [
+        './src/template/*', 
+        './src/template/widget/users/*'
+    ];
     var oRouteHbs = {
-        'src/template/dist/main.min.js': ['src/template/*.hbs']
+        'src/template/dist/main.min.js': ['src/template/*.hbs'],
+        'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs']
     };
     
     // Sass
     var aRouteSass = ['./src/sass/*'];
 
     // Js
-    var aRouteJs = ['./src/js/*'];
+    var aRouteJs = [
+        './src/js/*', 
+        './src/js/pages/index/*', 
+        './src/js/widget/users/*' 
+    ];
     var oRouteJs = {
-        'src/js/dist/main.min.js': ['src/js/*.js']
+        'src/js/dist/main.min.js': ['src/js/*.js'],
+        'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
+        'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
     };
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
