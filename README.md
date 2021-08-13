@@ -60,12 +60,16 @@ Also it is recommended to add the extension "Livereload" for "Google Chrome" or 
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
 
-With this we can do our first test modifying the following file.
+With this we can make our first test modifying the file "./pages/body.html" adding a "Hello World" to it. Modifying this file would look like this.
 
-**File: ../src/template/section2.hbs**
+**File: ./pages/body.html**
 
 ~~~
-<h3>Hello World!!!</h3>
+<h3>¡Hello World!</h3>
+
+<section id="users" data-template="true" data-styles="">
+	loaded...
+</section>
 ~~~
 
 If all goes well, you will see the changes in the browser. Each of the most relevant files and folders in the project is explained below with a description.
