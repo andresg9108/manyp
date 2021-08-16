@@ -9,10 +9,10 @@
 3. [Starting.](#Starting "Starting")
 4. [HTML templates.](#HtmlTemplates "HTML templates")
 5. [Using JavaScript](#UsingJavaScript "Using JavaScript")
-6. [Handlebars templates.](#HandlebarsTemplates "Handlebars templates")
+6. [Using Widgets.](#UsingWidgets "Using Widgets")
 7. [Using SASS.](#UsingSASS "Using SASS")
-8. [Using shell.js](#UsingShellJs "Using shell.js")
-9. [Production](#Production "Production")
+8. [Production](#Production "Production")
+9. [Using shell.js](#UsingShellJs "Using shell.js")
 
 <span id="Introduction"></span>
 ## Introduction ##
@@ -117,6 +117,8 @@ Now we are about to create our first HTML template that will contain the followi
 
 We will also create a new page by adding a new folder inside "./pages" and calling it "page2". When creating a new page we must also update the "aRoutePy" array in the "Gruntfile.js" file as follows.
 
+**File: ./Gruntfile.js**
+
 ~~~
 ...
 var aRoutePy = [
@@ -169,6 +171,8 @@ $(function(){
 
 It is important to add our new directory to the "Gruntfile.js" file as follows.
 
+**File: ./Gruntfile.js**
+
 ~~~
 ...
 var aRouteJs = [
@@ -190,7 +194,7 @@ var oRouteJs = {
 
 If all goes well, you can check the path "./src/js/dist/pages/" that should contain our file in production version which we will add to our page by modifying the following file.
 
-**File: ./pages\page2/head.html**
+**File: ./pages/page2/head.html**
 
 ~~~
 <!--Route: temp2.html-->
@@ -199,24 +203,24 @@ If all goes well, you can check the path "./src/js/dist/pages/" that should cont
 <script src="<<ROOT-DIR>>src/js/dist/pages/page2.min.js"></script>
 ~~~
 
+<span id="UsingWidgets"></span>
+## Using Widgets ##
+
+We will start to implement the widget found in "http://localhost/myproject/web/" which will load a list of test users, we will do it on the page "page2" previously created.
+
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
-
-<span id="HandlebarsTemplates"></span>
-## Handlebars templates ##
-
-...(Pending for documentation)...
 
 <span id="UsingSASS"></span>
 ## Using SASS ##
 
 ...(Pending for documentation)...
 
-<span id="UsingShellJs"></span>
-## Using shell.js ##
+<span id="Production"></span>
+## Production ##
 
 ...(Pending for documentation)...
 
-<span id="Production"></span>
-## Production ##
+<span id="UsingShellJs"></span>
+## Using shell.js ##
 
 ...(Pending for documentation)...
