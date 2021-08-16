@@ -8,9 +8,9 @@
 2. [Dependencies.](#Dependencies "Dependencies")
 3. [Starting.](#Starting "Starting")
 4. [HTML templates.](#HtmlTemplates "HTML templates")
-5. [Handlebars templates.](#HandlebarsTemplates "Handlebars templates")
-6. [Using SASS.](#UsingSASS "Using SASS")
-7. [Using JavaScript](#UsingJavaScript "Using JavaScript")
+5. [Using JavaScript](#UsingJavaScript "Using JavaScript")
+6. [Handlebars templates.](#HandlebarsTemplates "Handlebars templates")
+7. [Using SASS.](#UsingSASS "Using SASS")
 8. [Using shell.js](#UsingShellJs "Using shell.js")
 9. [Production](#Production "Production")
 
@@ -102,12 +102,15 @@ Now we are about to create our first HTML template that will contain the followi
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
+
+  	<script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
+
     <!--headHTML-->
   </head>
   <body>
-    <div style="background-color: blue; color: white;">
-      <!--bodyHTML-->
-    </div>
+  	<!--bodyHTML-->
   </body>
 </html>
 ~~~
@@ -131,9 +134,6 @@ Now we can modify the following files.
 ~~~
 <!--Route: temp2.html-->
 <title>This is my page number 2.</title>
-<script>
-	console.log('Hello World!!!');
-</script>
 ~~~
 
 **File: ./pages/page2/body.html**
@@ -146,6 +146,59 @@ See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp
 
 ***Note: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that the changes in the "Gruntfile.js" file are recognized. If it is necessary to re-save the changes made for the production files to be updated.***
 
+If all is well we should see our new page at the following URL.
+
+**http://localhost/myproject/web/page2**
+
+<span id="UsingJavaScript"></span>
+## Using JavaScript ##
+
+Now we will create a JavaScript file for our new page (page2) that will serve as its controller and we will do it with JQuery syntax. We will do this by adding a new directory called "page2" that will contain our file and will be in the path "./src/js/pages/", the file will have the following instructions.
+
+**File: ./src/js/pages/page2/app.js**
+
+~~~
+"use strict";
+
+var oApp = {};
+
+$(function(){
+	console.log('¡Hello World!');
+});
+~~~
+
+It is important to add our new directory to the "Gruntfile.js" file as follows.
+
+~~~
+...
+var aRouteJs = [
+    './src/js/*', 
+    './src/js/pages/index/*', 
+    './src/js/pages/page2/*', 
+    './src/js/widget/users/*' 
+];
+var oRouteJs = {
+    'src/js/dist/main.min.js': ['src/js/*.js'],
+    'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
+    'src/js/dist/pages/page2.min.js': ['src/js/pages/page2/*.js'],
+    'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
+};
+...
+~~~
+
+***Note: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that the changes in the "Gruntfile.js" file are recognized. If it is necessary to re-save the changes made for the production files to be updated.***
+
+If all goes well, you can check the path "./src/js/dist/pages/" that should contain our file in production version which we will add to our page by modifying the following file.
+
+**File: ./pages\page2/head.html**
+
+~~~
+<!--Route: temp2.html-->
+<title>This is my page number 2.</title>
+
+<script src="<<ROOT-DIR>>src/js/dist/pages/page2.min.js"></script>
+~~~
+
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 <span id="HandlebarsTemplates"></span>
@@ -155,11 +208,6 @@ See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp
 
 <span id="UsingSASS"></span>
 ## Using SASS ##
-
-...(Pending for documentation)...
-
-<span id="UsingJavaScript"></span>
-## Using JavaScript ##
 
 ...(Pending for documentation)...
 

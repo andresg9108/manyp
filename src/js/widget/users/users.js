@@ -11,7 +11,6 @@ oUsersWidget.load = function(){
 	fetch('https://jsonplaceholder.typicode.com/users')
 	.then(function(oResponse){ return oResponse.json(); })
 	.then(function(oResponse){
-		console.log(oResponse);
 		var oData = {
 			'users': oResponse
 		};
