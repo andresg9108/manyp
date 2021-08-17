@@ -64,13 +64,13 @@ With this we can make our first test modifying the file "./pages/body.html" addi
 
 **File: ./pages/body.html**
 
-~~~
+```html
 <h3>¡Hello World!</h3>
 
 <section id="users" data-template="true" data-styles="">
-	loaded...
+  loaded...
 </section>
-~~~
+```
 
 If all goes well, you will see the changes in the browser. Each of the most relevant files and folders in the project is explained below with a description.
 
@@ -102,15 +102,15 @@ Now we are about to create our first HTML template that will contain the followi
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
 
-  	<script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
 
     <!--headHTML-->
   </head>
   <body>
-  	<!--bodyHTML-->
+    <!--bodyHTML-->
   </body>
 </html>
 ~~~
