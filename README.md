@@ -98,7 +98,7 @@ Now we are about to create our first HTML template that will contain the followi
 
 **File: ./pageTemplates/temp2.html**
 
-~~~
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -106,6 +106,8 @@ Now we are about to create our first HTML template that will contain the followi
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
 
     <script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="<<ROOT-DIR>>src/js/dist/main.min.js"></script>
 
     <!--headHTML-->
   </head>
@@ -113,40 +115,40 @@ Now we are about to create our first HTML template that will contain the followi
     <!--bodyHTML-->
   </body>
 </html>
-~~~
+```
 
 We will also create a new page by adding a new folder inside "./pages" and calling it "page2". When creating a new page we must also update the "aRoutePy" array in the "Gruntfile.js" file as follows.
 
 **File: ./Gruntfile.js**
 
-~~~
+```js
 ...
 var aRoutePy = [
-	'./pages/*',
-	'./pageTemplates/*',
-	'./pages/page2/*'
+  './pages/*',
+  './pageTemplates/*',
+  './pages/page2/*'
 ];
 ...
-~~~
+```
 
 Now we can modify the following files.
 
 **File: ./pages/page2/head.html**
 
-~~~
+```html
 <!--Route: temp2.html-->
 <title>This is my page number 2.</title>
-~~~
+```
 
 **File: ./pages/page2/body.html**
 
-~~~
+```html
 <h1>Hello, this is my page number 2.</h1>
-~~~
+```
 
 See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp2.html&#45;&#45;&gt;" which tells our page which HTML template to use.
 
-***Note: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that the changes in the "Gruntfile.js" file are recognized. If it is necessary to re-save the changes made for the production files to be updated.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js". If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, since this will prevent the page from being updated correctly.***
 
 If all is well we should see our new page at the following URL.
 
@@ -159,21 +161,21 @@ Now we will create a JavaScript file for our new page (page2) that will serve as
 
 **File: ./src/js/pages/page2/app.js**
 
-~~~
+```js
 "use strict";
 
 var oApp = {};
 
 $(function(){
-	console.log('¡Hello World!');
+  console.log('¡Hello World!');
 });
-~~~
+```
 
 It is important to add our new directory to the "Gruntfile.js" file as follows.
 
 **File: ./Gruntfile.js**
 
-~~~
+```js
 ...
 var aRouteJs = [
     './src/js/*', 
@@ -188,25 +190,65 @@ var oRouteJs = {
     'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
 };
 ...
-~~~
+```
 
-***Note: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that the changes in the "Gruntfile.js" file are recognized. If it is necessary to re-save the changes made for the production files to be updated.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js". If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, since this will prevent the page from being updated correctly.***
 
 If all goes well, you can check the path "./src/js/dist/pages/" that should contain our file in production version which we will add to our page by modifying the following file.
 
 **File: ./pages/page2/head.html**
 
-~~~
+```html
 <!--Route: temp2.html-->
 <title>This is my page number 2.</title>
 
 <script src="<<ROOT-DIR>>src/js/dist/pages/page2.min.js"></script>
-~~~
+```
 
 <span id="UsingWidgets"></span>
 ## Using Widgets ##
 
-We will start to implement the widget found in "http://localhost/myproject/web/" which will load a list of test users, we will do it on the page "page2" previously created.
+We will start to implement the widget found in "http://localhost/myproject/web/" which will load a list of test users, we will do it on the page "page2" previously created. For this we will modify the following file adding the dependencies that this widget needs to work.
+
+**File: ./pages/page2/head.html**
+
+```html
+<!--Route: temp2.html-->
+<title>This is my page number 2.</title>
+
+<script src="<<ROOT-DIR>>src/js/dist/pages/page2.min.js"></script>
+
+<script src="<<ROOT-DIR>>src/template/dist/widget/users.min.js"></script>
+<script src="<<ROOT-DIR>>src/js/dist/widget/users.min.js"></script>
+```
+
+Now we will add the container where our widget will be loaded, we will do this by modifying the following file.
+
+**File: ./pages/page2/body.html**
+
+```html
+<h1>Hello, this is my page number 2.</h1>
+
+<section id="users" data-template="true" data-styles="">
+  loaded...
+</section>
+```
+
+Finally we will load the widget in the container by modifying the following file.
+
+**File: ./src/js/pages/page2/app.js**
+
+```js
+"use strict";
+
+var oApp = {};
+
+$(function(){
+  console.log('¡Hello World!');
+
+  oUsersWidget.load();
+});
+```
 
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
