@@ -55,7 +55,7 @@ In the development phase, the project must always be attentive to changes and to
 
 **http://localhost/myproject/web/**
 
-Also it is recommended to add the extension "Livereload" for "Google Chrome" or "Mozilla Firefox". This will tell these browsers to refresh the page the moment they detect a change, but always remember to run the "npm start" command and activate "Livereload" in your browser.
+It is also recommended to add the extension "Livereload" for "Google Chrome" or "Mozilla Firefox". This will tell these browsers to refresh the page the moment they detect a change, but always remember to run the "npm start" command, prevent the browser from caching, and enable "Livereload" on it.
 
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
@@ -90,7 +90,7 @@ If all goes well, you will see the changes in the browser. Each of the most rele
 
 All HTML templates for the project are stored in the "./pageTemplates" directory. We will start by opening the file "./pageTemplates/index.html" to take a look, we see that they are common HTML tags with the exception of "&lt;&lt;ROOT-DIR&gt;&gt;", "&lt;!&#45;&#45;headHTML&#45;&#45;&gt;" and "&lt;!&#45;&#45;bodyHTML&#45;&#45;&gt;" explained below.
 
-* "&lt;&lt;ROOT-DIR&gt;&gt;": You can use this instruction so that when the production files are updated, the root of the project appears instead. So if you put "&lt;&lt;ROOT-DIR&gt;&gt;src/example/main.min.js" it will appear "../../src/example/main.min.js" in the production files and no matter in what folder tree location is located, he will put you the root of the project.
+* "&lt;&lt;ROOT-DIR&gt;&gt;": You can use this declaration so that when the production files are updated, the project root appears instead. So if you put "&lt;&lt;ROOT-DIR&gt;&gt;src/example/main.min.js", something like "../../src/example/main.min. js" will appearaccording to the location in the folder tree.
 * "&lt;!&#45;&#45;headHTML&#45;&#45;&gt;": You can use this statement so that the unique HTML tags in the page header appear instead when the production files are updated.
 * "&lt;!&#45;&#45;bodyHTML&#45;&#45;&gt;": You can use this statement so that the unique HTML tags in the page body appear instead when the production files are updated.
 
@@ -249,6 +249,8 @@ $(function(){
   oUsersWidget.load();
 });
 ```
+
+If everything goes well you will see the changes in the browser.
 
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
