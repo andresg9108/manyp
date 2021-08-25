@@ -208,7 +208,18 @@ If all goes well, you can check the path "./src/js/dist/pages/" that should cont
 <span id="UsingWidgets"></span>
 ## Using Widgets ##
 
-We will start to implement the widget found in "http://localhost/myproject/web/" which will load a list of test users, we will do it on the page "page2" previously created. For this we will modify the following file adding the dependencies that this widget needs to work.
+We will start to implement the widget found in "http://localhost/myproject/web/" which will load a list of test users, we will do it on the page "page2" previously created which uses the template "./pageTemplates/temp2.html" which should have the JQuery and Handlebars dependencies as follows.
+
+**File: ./pageTemplates/temp2.html**
+
+```html
+...
+<script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
+<script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
+...
+```
+
+Now we will modify the following file adding the dependencies that this widget needs to work.
 
 **File: ./pages/page2/head.html**
 
@@ -251,6 +262,17 @@ $(function(){
 ```
 
 If everything goes well you will see the changes in the browser.
+
+Now we are going to create our first widget and we will do it on the page "page2", it is important to remember that these widgets are made using JQuery and Handlebars and therefore their dependencies must be there, if we check the page "page2", we will see that it uses the template "./pageTemplates/temp2.html" and containing these dependencies as follows.
+
+**File: ./pageTemplates/temp2.html**
+
+```html
+...
+<script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
+<script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
+...
+```
 
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
