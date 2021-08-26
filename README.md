@@ -274,6 +274,12 @@ Now we are going to create our first widget and we will do it on the page "page2
 ...
 ```
 
+The widget that we will create will be called "albums" and we will start by creating a directory with its name in the paths "./src/template/widget/" and "./src/js/widget/" and then create the following files.
+
+**File: ./src/template/widget/albums.hbs**
+
+**File: ./src/js/widget/albums.js**
+
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 <span id="UsingSASS"></span>
