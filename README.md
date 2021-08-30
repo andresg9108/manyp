@@ -148,7 +148,7 @@ Now we can modify the following files.
 
 See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp2.html&#45;&#45;&gt;" which tells our page which HTML template to use.
 
-***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js". If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, since this will prevent the page from being updated correctly.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
 
 If all is well we should see our new page at the following URL.
 
@@ -192,7 +192,7 @@ var oRouteJs = {
 ...
 ```
 
-***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js". If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, since this will prevent the page from being updated correctly.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
 
 If all goes well, you can check the path "./src/js/dist/pages/" that should contain our file in production version which we will add to our page by modifying the following file.
 
@@ -276,9 +276,123 @@ Now we are going to create our first widget and we will do it on the page "page2
 
 The widget that we will create will be called "albums" and we will start by creating a directory with its name in the paths "./src/template/widget/" and "./src/js/widget/" and then create the following files.
 
-**File: ./src/template/widget/albums.hbs**
+**File: ./src/template/widget/albums/albums.hbs**
 
-**File: ./src/js/widget/albums.js**
+```hbs
+<h1>Albums</h1>
+
+<ul>
+  {{#each albums}}
+    <li>{{title}}</li>
+  {{/each}}
+<ul>
+```
+
+**File: ./src/js/widget/albums/albums.js**
+
+```js
+"use strict";
+
+var oAlbumsWidget = {};
+
+$(function(){
+});
+
+/*
+*/
+oAlbumsWidget.load = function(){
+  fetch('https://jsonplaceholder.typicode.com/albums')
+  .then(function(oResponse){ return oResponse.json(); })
+  .then(function(oResponse){
+    console.log(oResponse);
+    var oData = {
+      'albums': oResponse
+    };
+    oAppMain.loadTemplate('widget/albums/albums', '#albums', oData);
+  });
+}
+```
+
+Now we are going to update the file "Gruntfile.js" adding the instructions that correspond to these two new files. First we will do the changes that correspond to the Handlebars file (.hbs).
+
+**File: ./Gruntfile.js**
+
+```js
+...
+var aRouteHbs = [
+  './src/template/*', 
+  './src/template/widget/users/*',
+  './src/template/widget/albums/*'
+];
+var oRouteHbs = {
+  'src/template/dist/main.min.js': ['src/template/*.hbs'],
+  'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs'],
+  'src/template/dist/widget/albums.min.js': ['src/template/widget/albums/*.hbs']
+};
+...
+```
+
+Now we will make the changes that correspond to the JavaScript file (.js).
+
+**File: ./Gruntfile.js**
+
+```js
+...
+var aRouteJs = [
+  './src/js/*', 
+  './src/js/pages/index/*', 
+  './src/js/pages/page2/*', 
+  './src/js/widget/users/*', 
+  './src/js/widget/albums/*' 
+];
+var oRouteJs = {
+  'src/js/dist/main.min.js': ['src/js/*.js'],
+  'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
+  'src/js/dist/pages/page2.min.js': ['src/js/pages/page2/*.js'],
+  'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js'],
+  'src/js/dist/widget/albums.min.js': ['src/js/widget/albums/*.js']
+};
+...
+```
+
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
+
+If all goes well, you can check in the path "src / js / dist / widget" and "src / template / dist /" that the production files of our new widget must contain and that we add to the page "page2" as shown sample below.
+
+Now we will add the container where our widget will be loaded, we will do this by modifying the following file.
+
+**File: ./pages/page2/body.html**
+
+```html
+<h1>Hello, this is my page number 2.</h1>
+
+<section id="albums" data-template="true" data-styles="">
+  loaded...
+</section>
+
+<section id="users" data-template="true" data-styles="">
+  loaded...
+</section>
+```
+
+Finally we will load the widget in the container by modifying the following file.
+
+**File: ./src/js/pages/page2/app.js**
+
+```js
+"use strict";
+
+var oApp = {};
+
+$(function(){
+  console.log('¡Hello World!');
+
+  oUsersWidget.load();
+  oAlbumsWidget.load();
+});
+```
+
+If all goes well you will see the changes on the page "page2".
 
 ***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
