@@ -357,7 +357,21 @@ var oRouteJs = {
 
 ***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
 
-If all goes well, you can check in the path "src / js / dist / widget" and "src / template / dist /" that the production files of our new widget must contain and that we add to the page "page2" as shown sample below.
+If all goes well, you can check in the path "src/js/dist/widget" and "src/template/dist/widget" that the production files of our new widget must contain and that we add to the page "page2" as shown sample below.
+
+**File: ./pages/page2/head.html**
+
+```html
+<!--Route: temp2.html-->
+<title>This is my page number 2.</title>
+
+<script src="<<ROOT-DIR>>src/js/dist/pages/page2.min.js"></script>
+
+<script src="<<ROOT-DIR>>src/template/dist/widget/users.min.js"></script>
+<script src="<<ROOT-DIR>>src/js/dist/widget/users.min.js"></script>
+<script src="<<ROOT-DIR>>src/template/dist/widget/albums.min.js"></script>
+<script src="<<ROOT-DIR>>src/js/dist/widget/albums.min.js"></script>
+```
 
 Now we will add the container where our widget will be loaded, we will do this by modifying the following file.
 
