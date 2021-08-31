@@ -408,12 +408,12 @@ $(function(){
 
 If all goes well you will see the changes on the page "page2".
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
-
 <span id="UsingSASS"></span>
 ## Using SASS ##
 
-...(Pending for documentation)...
+You can use some framework like Bootstrap and include it in the HTML templates you want or you can also create your own styles using SASS as shown in the following example.
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 <span id="Production"></span>
 ## Production ##
