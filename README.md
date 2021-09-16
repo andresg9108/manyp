@@ -413,12 +413,85 @@ If all goes well you will see the changes on the page "page2".
 
 You can use some framework like Bootstrap and include it in the HTML templates you want or you can also create your own styles using SASS as shown in the following example.
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
+We will start by making a small modification to the previously created page "page2" and we will do it by modifying the following file.
+
+**File: ./pages/page2/body.html**
+
+```html
+<h1>Hello, this is my page number 2.</h1>
+
+<div>
+  <h1>Styles test</h1>
+</div>
+
+<section id="albums" data-template="true" data-styles="">
+  loaded...
+</section>
+
+<section id="users" data-template="true" data-styles="">
+  loaded...
+</section>
+```
+
+Now we will add our first SASS lines by modifying the following file.
+
+**File: ./src/sass/main.sass**
+
+```sass
+*
+  margin: 0
+  padding: 0
+
+.test
+  background-color: red
+  color: white
+```
+
+With this we create the class ".test", the production file "./src/css/dist/main.min.css" will be automatically modified and we will add it to the HTML template that uses the page "page2", we will do this modifying the following file.
+
+**File: ./pageTemplates/temp2.html**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="<<ROOT-DIR>>src/css/dist/main.min.css" />
+
+    <script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="<<ROOT-DIR>>src/js/dist/main.min.js"></script>
+
+    <!--headHTML-->
+  </head>
+  <body>
+    <!--bodyHTML-->
+  </body>
+</html>
+```
+
+Now we will add the new class by doing the following modification.
+
+**File: ./pages/page2/body.html**
+
+```html
+...
+<div class="test">
+  <h1>Styles test</h1>
+</div>
+...
+```
+
+If everything goes well you will see the changes in the browser.
 
 <span id="Production"></span>
 ## Production ##
 
-...(Pending for documentation)...
+To obtain the production files for your project, follow the steps below.
+
+1. Remember to make a copy of the development files to follow the next steps and get the production files.
 
 <span id="UsingShellJs"></span>
 ## Using shell.js ##
