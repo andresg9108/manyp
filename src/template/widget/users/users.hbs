@@ -1,0 +1,16 @@
+<h1>Users list</h1>
+
+<table style="border-style: solid; border-width: 2px; border-collapse: collapse;">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Email</th>
+	</tr>
+	{{#each users}}
+		<tr>
+			<td>{{id}}</td>
+			<td>{{name}}</td>
+			<td>{{email}}</td>
+		</tr>
+	{{/each}}
+</table>
