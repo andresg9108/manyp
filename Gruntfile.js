@@ -1,40 +1,35 @@
 const fs = require('fs');
+var oRoutePy = require('./grunt/lib/routepy.js');
+
+// Log
+var aLog = ['./processpy.log'];
+
+// Handlebars
+var aRouteHbs = [
+    './src/template/*', 
+    './src/template/widget/users/*'
+];
+var oRouteHbs = {
+    'src/template/dist/main.min.js': ['src/template/*.hbs'],
+    'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs']
+};
+
+// Sass
+var aRouteSass = ['./src/sass/*'];
+
+// Js
+var aRouteJs = [
+    './src/js/*', 
+    './src/js/pages/index/*', 
+    './src/js/widget/users/*' 
+];
+var oRouteJs = {
+    'src/js/dist/main.min.js': ['src/js/*.js'],
+    'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
+    'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
+};
 
 module.exports = function(grunt) {
-    // Log
-    var aLog = ['./processpy.log'];
-
-    // Python
-    var aRoutePy = [
-        './pages/*',
-        './pageTemplates/*'
-    ];
-
-    // Handlebars
-    var aRouteHbs = [
-        './src/template/*', 
-        './src/template/widget/users/*'
-    ];
-    var oRouteHbs = {
-        'src/template/dist/main.min.js': ['src/template/*.hbs'],
-        'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs']
-    };
-    
-    // Sass
-    var aRouteSass = ['./src/sass/*'];
-
-    // Js
-    var aRouteJs = [
-        './src/js/*', 
-        './src/js/pages/index/*', 
-        './src/js/widget/users/*' 
-    ];
-    var oRouteJs = {
-        'src/js/dist/main.min.js': ['src/js/*.js'],
-        'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
-        'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
-    };
-
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
     grunt.initConfig({
@@ -98,7 +93,7 @@ module.exports = function(grunt) {
                 files: aLog
             },
             task_py: {
-                files: aRoutePy,
+                files: oRoutePy.aRoutePy,
                 tasks: ['process-html']
             },
             task_sass: {
