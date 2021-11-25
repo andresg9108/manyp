@@ -2,37 +2,33 @@
 
 # ManyP (On many pages) #
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
-
 ## Content ##
 
 1. [Introduction.](#Introduction "Introduction")
 2. [Dependencies.](#Dependencies "Dependencies")
-3. [Starting.](#Starting "Starting")
+3. [Getting started.](#GettingStarted "Getting started")
 4. [HTML templates.](#HtmlTemplates "HTML templates")
 5. [Using JavaScript](#UsingJavaScript "Using JavaScript")
 6. [Using Widgets.](#UsingWidgets "Using Widgets")
 7. [Using SASS.](#UsingSASS "Using SASS")
 8. [Production](#Production "Production")
 
-<span id="Introduction"></span>
-## Introduction ##
+## Introduction <span name="Introduction"></span> ##
 
 This project aims to provide an alternative to creating websites.
 
-<span id="Dependencies"></span>
-## Dependencies ##
+## Dependencies <span name="Dependencies"></span> ##
 
 - Node.js (https://nodejs.org).
 - Ruby (https://www.ruby-lang.org or https://rubyinstaller.org).
 - Python (https://www.python.org): Download Python and add it to the path of your operating system.
 - XAMPP (https://www.apachefriends.org/es/index.html).
 - Execute "gem install sass" on the console of your operating system.
-- Execute "npm i grunt -g" on the console of your operating system.
 - Execute "npm i install-here -g" on the console of your operating system.
 
-<span id="Starting"></span>
-## Starting ##
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
+
+## Getting started <span name="GettingStarted"></span> ##
 
 We will start by opening the "XAMPP Control Panel" and starting the "Apache" service. Now we can create a folder called "myproject" in the path of the "XAMPP" file and which is normally in the path "../xampp/htdocs/" if it has not been changed. With the folder ready, we can now access it using the console of your operating system and execute the following command that brings up all the files from the "manyp" project.
 
@@ -86,8 +82,7 @@ If all goes well, you will see the changes in the browser. Each of the most rele
 * "../Gruntfile.js": Stores all grunt settings.
 * "../package.json": Stores all Node.js settings.
 
-<span id="HtmlTemplates"></span>
-## HTML templates ##
+## HTML templates <span name="HtmlTemplates"></span> ##
 
 All HTML templates for the project are stored in the "./pageTemplates" directory. We will start by opening the file "./pageTemplates/index.html" to take a look, we see that they are common HTML tags with the exception of "&lt;&lt;ROOT-DIR&gt;&gt;", "&lt;!&#45;&#45;headHTML&#45;&#45;&gt;" and "&lt;!&#45;&#45;bodyHTML&#45;&#45;&gt;" explained below.
 
@@ -155,8 +150,7 @@ If all is well we should see our new page at the following URL.
 
 **http://localhost/myproject/web/page2**
 
-<span id="UsingJavaScript"></span>
-## Using JavaScript ##
+## Using JavaScript <span name="UsingJavaScript"></span> ##
 
 Now we will create a JavaScript file for our new page (page2) that will serve as its controller and we will do it with JQuery syntax. We will do this by adding a new directory called "page2" that will contain our file and will be in the path "./src/js/pages/", the file will have the following instructions.
 
@@ -206,8 +200,7 @@ If all goes well, you can check the path "./src/js/dist/pages/" that should cont
 <script src="<<ROOT-DIR>>src/js/dist/pages/page2.min.js"></script>
 ```
 
-<span id="UsingWidgets"></span>
-## Using Widgets ##
+## Using Widgets <span name="UsingWidgets"></span> ##
 
 We will start to implement the widget found in "http://localhost/myproject/web/" which will load a list of test users, we will do it on the page "page2" previously created which uses the template "./pageTemplates/temp2.html" which should have the JQuery and Handlebars dependencies as follows.
 
@@ -409,8 +402,7 @@ $(function(){
 
 If all goes well you will see the changes on the page "page2".
 
-<span id="UsingSASS"></span>
-## Using SASS ##
+## Using SASS <span name="UsingSASS"></span> ##
 
 You can use some framework like Bootstrap and include it in the HTML templates you want or you can also create your own styles using SASS as shown in the following example.
 
@@ -487,8 +479,7 @@ Now we will add the new class by doing the following modification.
 
 If everything goes well you will see the changes in the browser.
 
-<span id="Production"></span>
-## Production ##
+## Production <span name="Production"></span> ##
 
 To obtain the production files for your project, follow the steps below.
 

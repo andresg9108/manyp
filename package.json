@@ -9,6 +9,7 @@
     "sass": "grunt sass",
     "hbs": "grunt handlebars",
     "uglify": "grunt uglify",
+    "preinstall": "",
     "prepare": "npm-run-all html sass hbs uglify",
     "prepare-dist": "npm-run-all rts html sass hbs uglify"
   },
