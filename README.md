@@ -26,8 +26,6 @@ This project aims to provide an alternative to creating websites.
 - Execute "gem install sass" on the console of your operating system.
 - Execute "npm i install-here -g" on the console of your operating system.
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
-
 ## Getting started <span name="GettingStarted"></span> ##
 
 We will start by opening the "XAMPP Control Panel" and starting the "Apache" service. Now we can create a folder called "myproject" in the path of the "XAMPP" file and which is normally in the path "../xampp/htdocs/" if it has not been changed. With the folder ready, we can now access it using the console of your operating system and execute the following command that brings up all the files from the "manyp" project.
@@ -71,16 +69,19 @@ With this we can make our first test modifying the file "./pages/body.html" addi
 
 If all goes well, you will see the changes in the browser. Each of the most relevant files and folders in the project is explained below with a description.
 
-* "../pages/": Contains all the files that represent each page of the project.
-* "../pageTemplates/": Contains all the "HTML" templates of the project.
-* "../src/": Contains all the resources of the project.
-	- "../src/css/": Contains all the CSS files that SASS generates.
-	- "../src/js/": Contains all the JavaScript files for the project.
-	- "../src/sass/": Contains all the SASS files of the project.
-	- "../src/template/": Contains all the "Handlebars" templates of the project.
-* "../web/": Contains project production files.
-* "../Gruntfile.js": Stores all grunt settings.
-* "../package.json": Stores all Node.js settings.
+* "./grunt/": Contains all the routes that Grunt uses to function.
+* "./pages/": Contains all the files that represent each page of the project.
+* "./pageTemplates/": Contains all the "HTML" templates of the project.
+* "./src/": Contains all the resources of the project.
+	- "./src/css/": Contains all the CSS files that SASS generates.
+	- "./src/js/": Contains all the JavaScript files for the project.
+	- "./src/sass/": Contains all the SASS files of the project.
+	- "./src/template/": Contains all the "Handlebars" templates of the project.
+* "./web/": Contains project production files.
+* "./Gruntfile.js": Stores all grunt settings.
+* "./package.json": Stores all Node.js settings.
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## HTML templates <span name="HtmlTemplates"></span> ##
 
