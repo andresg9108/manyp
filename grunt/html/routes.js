@@ -1,0 +1,4 @@
+exports.a=[
+'./pages/*',
+'./pageTemplates/*'
+];

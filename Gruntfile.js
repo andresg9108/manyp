@@ -1,33 +1,13 @@
 const fs = require('fs');
-var oRoutePy = require('./grunt/lib/routepy.js');
+var oHtmlRoutes = require('./grunt/html/routes.js');
+var oHbsRoutes = require('./grunt/hbs/routes.js');
+var oHbsFiles = require('./grunt/hbs/files.js');
+var oSassRoutes = require('./grunt/sass/routes.js');
+var oJsRoutes = require('./grunt/js/routes.js');
+var oJsFiles = require('./grunt/js/files.js');
 
 // Log
 var aLog = ['./processpy.log'];
-
-// Handlebars
-var aRouteHbs = [
-    './src/template/*', 
-    './src/template/widget/users/*'
-];
-var oRouteHbs = {
-    'src/template/dist/main.min.js': ['src/template/*.hbs'],
-    'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs']
-};
-
-// Sass
-var aRouteSass = ['./src/sass/*'];
-
-// Js
-var aRouteJs = [
-    './src/js/*', 
-    './src/js/pages/index/*', 
-    './src/js/widget/users/*' 
-];
-var oRouteJs = {
-    'src/js/dist/main.min.js': ['src/js/*.js'],
-    'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
-    'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
-};
 
 module.exports = function(grunt) {
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -55,7 +35,7 @@ module.exports = function(grunt) {
             options: {
               namespace: 'Hbs'
             },
-            files: oRouteHbs
+            files: oHbsFiles.o
           }
         },
 
@@ -64,7 +44,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true
                 },
-                files: oRouteJs
+                files: oJsFiles.o
             }
         },
 
@@ -93,19 +73,19 @@ module.exports = function(grunt) {
                 files: aLog
             },
             task_py: {
-                files: oRoutePy.aRoutePy,
+                files: oHtmlRoutes.a,
                 tasks: ['process-html']
             },
             task_sass: {
-                files: aRouteSass,
+                files: oSassRoutes.a,
                 tasks: ['sass']
             },
             task_handlebars: {
-                files: aRouteHbs,
+                files: oHbsRoutes.a,
                 tasks: ['handlebars']
             },
             task_js:{
-                files: aRouteJs,
+                files: oJsRoutes.a,
                 tasks: ['uglify']
             }
         }
