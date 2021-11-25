@@ -1,6 +1,8 @@
 **Excuses:** ___I apologize for the English used, my language is Spanish.___
 
-# ManyP (In many Page) #
+# ManyP (On many pages) #
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## Content ##
 
@@ -12,7 +14,6 @@
 6. [Using Widgets.](#UsingWidgets "Using Widgets")
 7. [Using SASS.](#UsingSASS "Using SASS")
 8. [Production](#Production "Production")
-9. [Using shell.js](#UsingShellJs "Using shell.js")
 
 <span id="Introduction"></span>
 ## Introduction ##
@@ -522,8 +523,3 @@ npm i --production
 7. We will also delete "src/sass" and within "src/js" and "src/template" only the "dist" folder will remain.
 
 8. All the content of the "web" folder will go to the root and then we delete it.
-
-<span id="UsingShellJs"></span>
-## Using shell.js ##
-
-...(Pending for documentation)...
