@@ -67,29 +67,31 @@ With this we can make our first test modifying the file "./pages/body.html" addi
 </section>
 ```
 
-If all goes well, you will see the changes in the browser. Each of the most relevant files and folders in the project is explained below with a description.
+If all goes well, you will see the changes in the browser. Each of the most relevant files and folders in the project is explained below with a brief description.
 
-* "./grunt/": Contains all the routes that Grunt uses to function.
-* "./pages/": Contains all the files that represent each page of the project.
-* "./pageTemplates/": Contains all the "HTML" templates of the project.
-* "./src/": Contains all the resources of the project.
-	- "./src/css/": Contains all the CSS files that SASS generates.
-	- "./src/js/": Contains all the JavaScript files for the project.
-	- "./src/sass/": Contains all the SASS files of the project.
-	- "./src/template/": Contains all the "Handlebars" templates of the project.
-* "./web/": Contains project production files.
+* "./grunt/": It contains all the routes that Grunt uses to function.
+* "./pages/": It contains all the files and directories that represent each page in the project.
+* "./pageTemplates/": It contains all the HTML templates for the project.
+* "./src/": It contains all the resources of the project.
+	- "./src/css/": It contains all the CSS files that SASS generates.
+	- "./src/js/": Here we can manage our javascript files.
+	- "./src/sass/": Here we can manage our sass files.
+	- "./src/template/": Here we can manage our handlebars files.
+* "./web/": It contains the production HTML files and folders.
 * "./Gruntfile.js": Stores all grunt settings.
 * "./package.json": Stores all Node.js settings.
-
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## HTML templates <span name="HtmlTemplates"></span> ##
 
 All HTML templates for the project are stored in the "./pageTemplates" directory. We will start by opening the file "./pageTemplates/index.html" to take a look, we see that they are common HTML tags with the exception of "&lt;&lt;ROOT-DIR&gt;&gt;", "&lt;!&#45;&#45;headHTML&#45;&#45;&gt;" and "&lt;!&#45;&#45;bodyHTML&#45;&#45;&gt;" explained below.
 
-* "&lt;&lt;ROOT-DIR&gt;&gt;": You can use this declaration so that when the production files are updated, the project root appears instead. So if you put "&lt;&lt;ROOT-DIR&gt;&gt;src/example/main.min.js", something like "../../src/example/main.min. js" will appearaccording to the location in the folder tree.
 * "&lt;!&#45;&#45;headHTML&#45;&#45;&gt;": You can use this statement so that the unique HTML tags in the page header appear instead when the production files are updated.
 * "&lt;!&#45;&#45;bodyHTML&#45;&#45;&gt;": You can use this statement so that the unique HTML tags in the page body appear instead when the production files are updated.
+* "&lt;&lt;ROOT-DIR&gt;&gt;":  You can use this declaration so that when the production files are updated, the project root appears instead. So if you put "&lt;&lt;ROOT-DIR&gt;&gt;src/example/main.min.js", something like "../../src/example/main.min.js" will appearaccording to the location in the folder tree.
+
+You can also use the following tag.
+
+* "&lt;&lt;DIR&gt;&gt;": This tag does the same as the previous one but places the path one level lower in the file tree.
 
 Now we are about to create our first HTML template that will contain the following lines and will be called "temp2.html".
 
@@ -113,6 +115,8 @@ Now we are about to create our first HTML template that will contain the followi
   </body>
 </html>
 ```
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 We will also create a new page by adding a new folder inside "./pages" and calling it "page2". When creating a new page we must also update the "aRoutePy" array in the "Gruntfile.js" file as follows.
 
