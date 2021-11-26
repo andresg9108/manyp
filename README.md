@@ -24,33 +24,27 @@ This project aims to provide an alternative to creating websites.
 - Python (https://www.python.org): Download Python and add it to the path of your operating system.
 - XAMPP (https://www.apachefriends.org/es/index.html).
 - Execute "gem install sass" on the console of your operating system.
-- Execute "npm i install-here -g" on the console of your operating system.
+- Execute "npm i manyp-cli -g" on the console of your operating system.
 
 ## Getting started <span name="GettingStarted"></span> ##
 
 We will start by opening the "XAMPP Control Panel" and starting the "Apache" service. Now we can create a folder called "myproject" in the path of the "XAMPP" file and which is normally in the path "../xampp/htdocs/" if it has not been changed. With the folder ready, we can now access it using the console of your operating system and execute the following command that brings up all the files from the "manyp" project.
 
 ~~~
-install-here manyp-ag
-~~~
-
-Then we execute the following command that brings all the dependencies of the "manyp" project.
-
-~~~
-npm i
+manyp-cli install
 ~~~
 
 Now we can execute the following command that makes our project be aware of the changes to automatically execute the corresponding commands.
 
 ~~~
-npm start
+manyp-cli start
 ~~~
 
 In the development phase, the project must always be attentive to changes and to exit you just have to use Ctrl + C. With this we can enter the following URL and see our project for the first time.
 
 **http://localhost/myproject/web/**
 
-It is also recommended to add the extension "Livereload" for "Google Chrome" or "Mozilla Firefox". This will tell these browsers to refresh the page the moment they detect a change, but always remember to run the "npm start" command, prevent the browser from caching, and enable "Livereload" on it.
+It is also recommended to add the extension "Livereload" for "Google Chrome" or "Mozilla Firefox". This will tell these browsers to refresh the page the moment they detect a change, but always remember to run the "manyp-cli start" command, prevent the browser from caching, and enable "Livereload" on it.
 
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
@@ -145,13 +139,11 @@ Now we can modify the following files.
 
 See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp2.html&#45;&#45;&gt;" which tells our page which HTML template to use.
 
-***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "manyp-cli start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
 
 If all is well we should see our new page at the following URL.
 
 **http://localhost/myproject/web/page2**
-
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## Using JavaScript <span name="UsingJavaScript"></span> ##
 
@@ -168,6 +160,8 @@ $(function(){
   console.log('¡Hello World!');
 });
 ```
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 It is important to add our new directory to the "Gruntfile.js" file as follows.
 
@@ -190,7 +184,7 @@ var oRouteJs = {
 ...
 ```
 
-***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "manyp-cli start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
 
 If all goes well, you can check the path "./src/js/dist/pages/" that should contain our file in production version which we will add to our page by modifying the following file.
 
@@ -352,7 +346,7 @@ var oRouteJs = {
 ...
 ```
 
-***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "npm start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
+***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "manyp-cli start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
 
 If all goes well, you can check in the path "src/js/dist/widget" and "src/template/dist/widget" that the production files of our new widget must contain and that we add to the page "page2" as shown sample below.
 
