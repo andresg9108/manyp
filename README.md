@@ -91,7 +91,7 @@ All HTML templates for the project are stored in the "./pageTemplates" directory
 
 You can also use the following tag.
 
-* "&lt;&lt;DIR&gt;&gt;": This tag does the same as the previous one but places the path one level lower in the file tree.
+* "&lt;&lt;DIR&gt;&gt;": This tag does the same as the previous one but places the path one level lower in the folder tree.
 
 Now we are about to create our first HTML template that will contain the following lines and will be called "temp2.html".
 
@@ -116,20 +116,16 @@ Now we are about to create our first HTML template that will contain the followi
 </html>
 ```
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
+We will also create a new page by adding a new folder inside "./pages" and calling it "page2". When creating a new page we must also update the file "./grunt/html/routes.js" as follows.
 
-We will also create a new page by adding a new folder inside "./pages" and calling it "page2". When creating a new page we must also update the "aRoutePy" array in the "Gruntfile.js" file as follows.
-
-**File: ./Gruntfile.js**
+**File: ./grunt/html/routes.js**
 
 ```js
-...
-var aRoutePy = [
-  './pages/*',
-  './pageTemplates/*',
-  './pages/page2/*'
+exports.a=[
+'./pages/*',
+'./pageTemplates/*',
+'./pages/page2/*'
 ];
-...
 ```
 
 Now we can modify the following files.
@@ -154,6 +150,8 @@ See how the first line of the "head.html" file shows "&lt;!&#45;&#45;Route: temp
 If all is well we should see our new page at the following URL.
 
 **http://localhost/myproject/web/page2**
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## Using JavaScript <span name="UsingJavaScript"></span> ##
 
