@@ -161,27 +161,28 @@ $(function(){
 });
 ```
 
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
+It is important to update the files "./grunt/js/routes.js" and "./grunt/js/files.js", this so that the project separates the path of our new file. We will do it in the following way.
 
-It is important to add our new directory to the "Gruntfile.js" file as follows.
-
-**File: ./Gruntfile.js**
+**File: ./grunt/js/routes.js**
 
 ```js
-...
-var aRouteJs = [
-    './src/js/*', 
-    './src/js/pages/index/*', 
-    './src/js/pages/page2/*', 
-    './src/js/widget/users/*' 
+exports.a=[
+'./src/js/*',
+'./src/js/pages/index/*',
+'./src/js/pages/page2/*',
+'./src/js/widget/users/*'
 ];
-var oRouteJs = {
-    'src/js/dist/main.min.js': ['src/js/*.js'],
-    'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
-    'src/js/dist/pages/page2.min.js': ['src/js/pages/page2/*.js'],
-    'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
+```
+
+**File: ./grunt/js/files.js**
+
+```js
+exports.o={
+'src/js/dist/main.min.js': ['src/js/*.js'],
+'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
+'src/js/dist/pages/page2.min.js': ['src/js/pages/page2/*.js'],
+'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js']
 };
-...
 ```
 
 ***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "manyp-cli start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
@@ -304,46 +305,52 @@ oAlbumsWidget.load = function(){
 }
 ```
 
-Now we are going to update the file "Gruntfile.js" adding the instructions that correspond to these two new files. First we will do the changes that correspond to the Handlebars file (.hbs).
+The file "albums.hbs" contains the template of our widget with handlebars syntax, and the file "albums.js" will serve as the controller of our widget that contains the "load" function, which will be in charge of taking the data from a web service and then load the template with these.
 
-**File: ./Gruntfile.js**
+It is important to update the files "./grunt/hbs/routes.js" and "./grunt/hbs/files.js", this so that the project separates the path of our file "albums.hbs". We will do it as follows.
+
+**File: ./grunt/hbs/routes.js**
 
 ```js
-...
-var aRouteHbs = [
-  './src/template/*', 
-  './src/template/widget/users/*',
-  './src/template/widget/albums/*'
+exports.a=[
+'./src/template/*',
+'./src/template/widget/users/*',
+'./src/template/widget/albums/*'
 ];
-var oRouteHbs = {
-  'src/template/dist/main.min.js': ['src/template/*.hbs'],
-  'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs'],
-  'src/template/dist/widget/albums.min.js': ['src/template/widget/albums/*.hbs']
-};
-...
 ```
 
-Now we will make the changes that correspond to the JavaScript file (.js).
-
-**File: ./Gruntfile.js**
+**File: ./grunt/hbs/files.js**
 
 ```js
-...
-var aRouteJs = [
-  './src/js/*', 
-  './src/js/pages/index/*', 
-  './src/js/pages/page2/*', 
-  './src/js/widget/users/*', 
-  './src/js/widget/albums/*' 
-];
-var oRouteJs = {
-  'src/js/dist/main.min.js': ['src/js/*.js'],
-  'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
-  'src/js/dist/pages/page2.min.js': ['src/js/pages/page2/*.js'],
-  'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js'],
-  'src/js/dist/widget/albums.min.js': ['src/js/widget/albums/*.js']
+exports.o={
+'src/template/dist/main.min.js': ['src/template/*.hbs'],
+'src/template/dist/widget/users.min.js': ['src/template/widget/users/*.hbs'],
+'src/template/dist/widget/albums.min.js': ['src/template/widget/albums/*.hbs']
 };
-...
+```
+
+And it is also important to update the files "./grunt/js/routes.js" and "./grunt/js/files.js", this so that the project separates the path of our file "albums.js". We will do it as follows.
+
+**File: ./grunt/js/routes.js**
+
+```js
+exports.a=[
+'./src/js/*',
+'./src/js/pages/index/*',
+'./src/js/widget/users/*',
+'./src/js/widget/albums/*'
+];
+```
+
+**File: ./grunt/js/files.js**
+
+```js
+exports.o={
+'src/js/dist/main.min.js': ['src/js/*.js'],
+'src/js/dist/pages/index.min.js': ['src/js/pages/index/*.js'],
+'src/js/dist/widget/users.min.js': ['src/js/widget/users/*.js'],
+'src/js/dist/widget/albums.min.js': ['src/js/widget/albums/*.js']
+};
 ```
 
 ***Warning: It is recommended to restart the processes in the console using Ctrl + C and again "manyp-cli start", this so that they recognize the changes in the file "Gruntfile.js" and the new files. If it is necessary to re-save the changes made for the production files to be updated. It is also important while we are in the development phase to verify that our browser is not using the cache, as this will prevent the page from updating correctly.***
@@ -423,6 +430,8 @@ We will start by making a small modification to the previously created page "pag
 </section>
 ```
 
+See how a new tag "&lt;div&gt;" was created that will serve us for our test.
+
 Now we will add our first SASS lines by modifying the following file.
 
 **File: ./src/sass/main.sass**
@@ -437,7 +446,7 @@ Now we will add our first SASS lines by modifying the following file.
   color: white
 ```
 
-With this we create the class ".test", the production file "./src/css/dist/main.min.css" will be automatically modified and we will add it to the HTML template that uses the page "page2", we will do this modifying the following file.
+With this we create the class ".test", the production file "./src/css/dist/main.min.css" will be automatically modified and we will add it to the HTML template that the page "page2" uses. We will do this by modifying the following file.
 
 **File: ./pageTemplates/temp2.html**
 
@@ -475,6 +484,8 @@ Now we will add the new class by doing the following modification.
 ```
 
 If everything goes well you will see the changes in the browser.
+
+***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## Production <span name="Production"></span> ##
 
