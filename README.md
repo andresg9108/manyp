@@ -161,7 +161,7 @@ $(function(){
 });
 ```
 
-It is important to update the files "./grunt/js/routes.js" and "./grunt/js/files.js", this so that the project separates the path of our new file. We will do it in the following way.
+It is important to update the files "./grunt/js/routes.js" and "./grunt/js/files.js", this so that the project knows where the path of our new file is. We will do it as follows. 
 
 **File: ./grunt/js/routes.js**
 
@@ -307,7 +307,7 @@ oAlbumsWidget.load = function(){
 
 The file "albums.hbs" contains the template of our widget with handlebars syntax, and the file "albums.js" will serve as the controller of our widget that contains the "load" function, which will be in charge of taking the data from a web service and then load the template with these.
 
-It is important to update the files "./grunt/hbs/routes.js" and "./grunt/hbs/files.js", this so that the project separates the path of our file "albums.hbs". We will do it as follows.
+It is important to update the files "./grunt/hbs/routes.js" and "./grunt/hbs/files.js", this so that the project knows where the path of our "albums.hbs" file is. We will do it as follows.
 
 **File: ./grunt/hbs/routes.js**
 
@@ -329,7 +329,7 @@ exports.o={
 };
 ```
 
-And it is also important to update the files "./grunt/js/routes.js" and "./grunt/js/files.js", this so that the project separates the path of our file "albums.js". We will do it as follows.
+And it is also important to update the files "./grunt/js/routes.js" and "./grunt/js/files.js", this so that the project knows where the path of our file "albums.js". We will do it as follows.
 
 **File: ./grunt/js/routes.js**
 
@@ -484,8 +484,6 @@ Now we will add the new class by doing the following modification.
 ```
 
 If everything goes well you will see the changes in the browser.
-
-***THE DOCUMENTATION IS BEING REVIEWED FROM HERE***
 
 ## Production <span name="Production"></span> ##
 
