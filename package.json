@@ -1,9 +1,11 @@
 {
   "name": "manyp-ag",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "This project aims to provide an alternative to creating websites.",
   "scripts": {
-    "start": "grunt",
+    "start": "node main.js",
+    "grunt": "grunt",
+    "server": "node server.js",
     "rts": "grunt process-rts",
     "html": "grunt process-html",
     "sass": "grunt sass",
@@ -21,6 +23,7 @@
   "license": "MIT",
   "homepage": "https://github.com/andresg9108/manyp",
   "devDependencies": {
+    "express": "^4.17.2",
     "grunt": "^1.4.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-handlebars": "^3.0.0",
