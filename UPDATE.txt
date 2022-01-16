@@ -2,10 +2,11 @@ Manual to move from version v2.0.0 to v3.0.0
 
 1. Run "npm update".
 2. Update the version.json file.
-3. New file "start.js".
-4. New file "server.js".
-5. New folder "sys-express".
-6. File: package.json
+3. Update file "README.md".
+4. New file "main.js".
+5. New file "server.js".
+6. New folder "sys-express".
+7. File: package.json
 
 	* The following "script" items are added or modified.
 		"start": "node main.js",
