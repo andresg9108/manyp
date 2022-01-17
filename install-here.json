@@ -1,4 +1,5 @@
 {
-  "ignoreOverwrite": "processpy.log;LICENSE.txt;README.md;grunt;pages;pageTemplates;src",
+  "ignoreOverwrite": "processpy.log;LICENSE.txt;README.md",
+  "ignorePath": "grunt;pages;pageTemplates;src",
   "checkVersion": true
 }

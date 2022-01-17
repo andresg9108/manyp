@@ -1,6 +1,6 @@
 {
   "name": "manyp-ag",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "This project aims to provide an alternative to creating websites.",
   "scripts": {
     "start": "node main.js",
