@@ -19,11 +19,19 @@ This project aims to provide an alternative to creating websites.
 
 ## Dependencies <span name="Dependencies"></span> ##
 
-- Node.js (https://nodejs.org).
-- Ruby (https://www.ruby-lang.org or https://rubyinstaller.org).
-- Python (https://www.python.org): Download Python and add it to the path of your operating system.
-- Execute "gem install sass" on the console of your operating system.
-- Execute "npm i manyp-cli -g" on the console of your operating system.
+* Node.js (https://nodejs.org).
+  - Run "node -v" in your OS console to see if it is already installed.
+* Npm CLI (https://docs.npmjs.com/cli).
+  - On Windows it comes with the Node.js installer, on Linux based OS you will need to install it.
+  - Run "npm -v" in your OS console to see if it is already installed.
+* Python (https://www.python.org).
+  - On Windows you have to install it and add it to the OS path.
+  - On linux based OS you should run the command "sudo apt-get install python-is-python3".
+  - Run "python --version" in your OS console to see if it is already installed.
+* Sass (https://sass-lang.com).
+  - Run "npm i sass -g" in your OS console to install it.
+  - Run "sass --version" in your OS console to see if it is already installed.
+* ManyP CLI.
 
 ## Getting started <span name="GettingStarted"></span> ##
 
