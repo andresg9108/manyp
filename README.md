@@ -11,7 +11,8 @@
 5. [Using JavaScript](#UsingJavaScript "Using JavaScript")
 6. [Using Widgets.](#UsingWidgets "Using Widgets")
 7. [Using SASS.](#UsingSASS "Using SASS")
-8. [Production](#Production "Production")
+8. [Files copy.](#FilesCopy "Files copy")
+9. [Production](#Production "Production")
 
 ## Introduction <span name="Introduction"></span> ##
 
@@ -494,6 +495,35 @@ Now we will add the new class by doing the following modification.
 ```
 
 If everything goes well you will see the changes in the browser.
+
+## Files copy <span name="FilesCopy"></span> ##
+
+This functionality will allow us to create a copy of one or more files. To understand how it works we are going to modify the following files.
+
+**File: ./grunt/copy/routes.js**
+
+```js
+exports.a=[
+'./src/css/dist/*'
+];
+```
+
+The paths we load into this array will tell Grunt to update when it finds a modification to them. With the following modification we will indicate that the files are going to be copied and where they are going to be copied.
+
+**File: ./grunt/copy/files.js**
+
+```js
+exports.o={
+  cssdist: {
+    expand: true,
+    cwd: 'src/css/dist/',
+    src: ["*.css", "*.css.map"],
+    dest: 'dist/'
+  }
+};
+```
+
+In "cwd" we must add the path where the file or files we want to copy are, in "src" we will add the files to be copied and in "dest" we will add the destination of the files.
 
 ## Production <span name="Production"></span> ##
 
