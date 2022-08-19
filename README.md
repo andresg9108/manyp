@@ -60,6 +60,12 @@ It is also recommended to add the extension "Livereload" for "Google Chrome" or 
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
 
+To update "manyp" in our project and its dependencies we can use the following command.
+
+~~~
+manyp-cli update
+~~~
+
 With this we can make our first test modifying the file "./pages/body.html" adding a "Hello World" to it. Modifying this file would look like this.
 
 **File: ./pages/body.html**
@@ -548,7 +554,7 @@ npm run prepare-dist
 5. We delete the directory "node_modules" and execute the following command that will load this same directory but only with the production dependencies. 
 
 ~~~
-npm i --production
+npm i --production --ignore-scripts
 ~~~
 
 6. In the root of the project we will delete all the files and we will keep the following folders.
