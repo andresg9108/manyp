@@ -2,6 +2,6 @@
 
 var oApp = {};
 
-$(function(){
+document.addEventListener('DOMContentLoaded', (e) => {;
 	oUsersWidget.load();
 });
