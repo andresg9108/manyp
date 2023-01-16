@@ -20,21 +20,21 @@ Este proyecto pretende ofrecer una alternativa a la creación de sitios web.
 ## Dependencias ##
 
 * Node.js (https://nodejs.org).
-  - Ejecuta "node -v" en la consola de su sistema operativo para ver si ya está instalado.
+  - Ejecuta "node --version" en la consola de su sistema operativo para ver si ya está instalado.
 * CLI de Npm (https://docs.npmjs.com/cli).
-  - En Windows viene con el instalador de Node.js, en los sistemas operativos basados ​​en Linux deberá instalarlo.
-  - Ejecuta "npm -v" en la consola de su sistema operativo para ver si ya está instalado.
+  - En Windows viene con el instalador de Node.js, en los sistemas operativos basados en Linux deberá instalarlo.
+  - Ejecuta "npm --version" en la consola de su sistema operativo para ver si ya está instalado.
 * Python (https://www.python.org).
   - En Windows debe instalarlo y agregarlo a la ruta del sistema operativo.
-  - En los sistemas operativos basados ​​en Linux debe ejecutar el comando "sudo apt-get install python-is-python3".
+  - En los sistemas operativos basados en Linux debe ejecutar el comando "sudo apt-get install python-is-python3".
   - Ejecuta "python --version" en la consola de su sistema operativo para ver si ya está instalado.
 * Sass (https://sass-lang.com).
   - Ejecuta "npm i sass -g" en la consola de su sistema operativo para instalarlo.
   - Ejecuta "sass --version" en la consola de su sistema operativo para ver si ya está instalado.
 * CLI de ManyP.
   - Ejecuta "npm i manyp-cli -g".
-  - En sistemas operativos basados ​​en Linux incluya "--unsafe-perm", el comando quedaría de la siguiente forma "npm i manyp-cli -g --unsafe-perm".
-  - Ejecuta "manyp-cli -v" en la consola de su sistema operativo para ver si ya está instalado.
+  - En sistemas operativos basados en Linux incluya "--unsafe-perm". El comando quedaría de la siguiente forma "npm i manyp-cli -g --unsafe-perm".
+  - Ejecuta "manyp-cli --version" en la consola de su sistema operativo para ver si ya está instalado.
 
 ## Empezando ##
 
@@ -59,7 +59,7 @@ También se recomienda agregar la extensión "Livereload" para "Google Chrome" o
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
 
-Para actualizar "manyp" en nuestro proyecto y sus dependencias podemos usar el siguiente comando.
+Para actualizar "manyp" y sus dependencias en nuestro proyecto, podemos usar el siguiente comando.
 
 ~~~
 manyp-cli update
@@ -70,7 +70,7 @@ Con esto podemos hacer nuestra primera prueba modificando el archivo "./pages/bo
 **Archivo: ./pages/body.html**
 
 ```html
-<h3>¡Hello World!</h3>
+<h1>¡Hello World!</h1>
 
 <section id="users" data-template="true" data-styles="">
   loaded...
@@ -87,21 +87,21 @@ Si todo va bien verá los cambios en el navegador. A continuación se explica ca
   - “./src/js/": Aquí podemos administrar nuestros archivos JavaScript.
   - "./src/sass/": Aquí podemos administrar nuestros archivos SASS.
   - "./src/template/": Aquí podemos gestionar nuestros archivos de Handlebars.
-* "./web/": contiene los archivos y carpetas HTML de producción.
-* "./Gruntfile.js": almacena todas las configuraciones de Grunt.
+* "./web/": Contiene los archivos y carpetas HTML de producción.
+* "./Gruntfile.js": Almacena todas las configuraciones de Grunt.
 * "./package.json": Almacena todas las configuraciones de Node.js.
 
 ## Plantillas HTML ##
 
-Todas las plantillas HTML para el proyecto se almacenan en el directorio "./pageTemplates". Comenzaremos abriendo el archivo "./pageTemplates/index.html" para echar un vistazo, vemos que son etiquetas HTML comunes a excepción de "<<ROOT-DIR>>", "<!--headHTML- ->" y "<!--bodyHTML-->". Se explican a continuación.
+Todas las plantillas HTML del proyecto se almacenan en el directorio "./pageTemplates". Comenzaremos abriendo el archivo "./pageTemplates/index.html" para echar un vistazo, vemos que son etiquetas HTML comunes a excepción de "\<\<ROOT-DIR\>\>", "\<!--headHTML--\>" y "\<!--bodyHTML--\>". Se explican a continuación.
 
 "\<!--headHTML--\>": Puede usar esta declaración para que las etiquetas HTML únicas en el encabezado de la página aparezcan cuando se actualicen los archivos de producción.
 "\<!--bodyHTML--\>": Puede usar esta declaración para que las etiquetas HTML únicas en el cuerpo de la página aparezcan cuando se actualicen los archivos de producción.
-"\<\<ROOT-DIR\>\>": Puede usar esta declaración para que cuando se actualicen los archivos de producción aparezca la raíz del proyecto en su lugar. Entonces, si ponemos algo como "<<ROOT-DIR>>src/example/main.min.js", aparecerá algo como "../../src/example/main.min.js", según la ubicación en la carpeta raíz.
+"\<\<ROOT-DIR\>\>": Puede usar esta declaración para que cuando se actualicen los archivos de producción aparezca la raíz del proyecto en su lugar. Entonces, si ponemos algo como "\<\<ROOT-DIR\>\>src/example/main.min.js", aparecerá algo como "../../src/example/main.min.js", según la ubicación en la carpeta raíz.
 
 También podemos utilizar las siguientes declaraciones.
 
-"\<\<DIR\>\>": Esta declaración hace lo mismo que la anterior pero coloca la ruta un nivel más abajo en la carpeta raíz. Es importante porque en el momento de sacar los archivos de producción las declaraciones “<<ROOT-DIR>>” serán reemplazadas por “<<DIR>>”. También nos sirve porque en ocasiones necesitamos saber la ruta actual en el navegador, sobre todo cuando estamos en fase desarrollo y entendiendo que permanecerá así incluso en los archivos de producción.
+"\<\<DIR\>\>": Esta declaración hace lo mismo que la anterior pero coloca la ruta un nivel más abajo en la carpeta raíz. Es importante porque en el momento de sacar los archivos de producción las declaraciones “\<\<ROOT-DIR\>\>” serán reemplazadas por “\<\<DIR\>\>”. También nos sirve porque en ocasiones necesitamos saber la ruta actual en el navegador, sobre todo cuando estamos en fase desarrollo y entendiendo que permanecerá así incluso en los archivos de producción.
 
 Ahora estamos a punto de crear nuestra primera plantilla HTML que contendrá las siguientes líneas y se llamará "temp2.html".
 
@@ -114,7 +114,6 @@ Ahora estamos a punto de crear nuestra primera plantilla HTML que contendrá las
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
 
-    <script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
     <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="<<ROOT-DIR>>src/js/dist/main.min.js"></script>
 
@@ -153,9 +152,9 @@ Ahora podemos modificar los siguientes archivos.
 <h1>Hello, this is my page number 2.</h1>
 ```
 
-Vea como la primera línea del archivo "head.html" muestra "<!--Route: temp2.html-->" que le dice a nuestra página que plantilla HTML usar.
+Vea como la primera línea del archivo "head.html" muestra "\<!--Route: temp2.html--\>" que le dice a nuestra página que plantilla HTML usar.
 
-Advertencia: Se recomienda reiniciar los procesos en la consola usando Ctrl + C y nuevamente "manyp-cli start", esto para que reconozcan los cambios en el archivo "Gruntfile.js" y los nuevos archivos. Si es necesario volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante mientras estamos en la fase de desarrollo verificar que nuestro navegador no esté usando el caché, ya que esto evitará que la página se actualice correctamente.
+**Advertencia: Se recomienda reiniciar los procesos en la consola usando Ctrl + C y nuevamente "manyp-cli start" para que reconozca los archivos nuevos. Si es necesario, hay que volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante mientras estamos en la fase de desarrollo, verificar que nuestro navegador no esté usando el caché.**
 
 Si todo está bien deberíamos ver nuestra página nueva en la siguiente URL.
 
@@ -163,7 +162,7 @@ Si todo está bien deberíamos ver nuestra página nueva en la siguiente URL.
 
 ## Usando JavaScript ##
 
-Ahora crearemos un archivo JavaScript para nuestra nueva página (page2) que servirá como su controlador y lo haremos con sintaxis JQuery. Lo haremos agregando un nuevo directorio llamado "page2" que contendrá nuestro archivo y estará en la ruta "./src/js/pages/", el archivo tendrá las siguientes instrucciones.
+Ahora crearemos un archivo JavaScript para nuestra nueva página (page2) que servirá como su controlador. Lo haremos agregando un nuevo directorio llamado "page2" que contendrá nuestro archivo y estará en la ruta "./src/js/pages/", el archivo tendrá las siguientes instrucciones.
 
 **Archivo: ./src/js/pages/page2/app.js**
 
@@ -172,12 +171,12 @@ Ahora crearemos un archivo JavaScript para nuestra nueva página (page2) que ser
 
 var oApp = {};
 
-$(function(){
+document.addEventListener('DOMContentLoaded', (e) => {;
   console.log('¡Hello World!');
 });
 ```
 
-Es importante actualizar los archivos "./grunt/js/routes.js" y "./grunt/js/files.js", esto para que el proyecto sepa donde está la ruta de nuestro nuevo archivo. Lo haremos de la siguiente manera.
+Es importante actualizar los archivos "./grunt/js/routes.js" y "./grunt/js/files.js" para que el proyecto sepa donde está la nueva ruta. Lo haremos de la siguiente manera.
 
 **File: ./grunt/js/routes.js**
 
@@ -201,7 +200,7 @@ exports.o={
 };
 ```
 
-Advertencia: Se recomienda reiniciar los procesos en la consola usando Ctrl + C y nuevamente "manyp-cli start", esto para que reconozcan los cambios en el archivo "Gruntfile.js" y los nuevos archivos. Si es necesario volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante mientras estamos en la fase de desarrollo verificar que nuestro navegador no esté usando el caché, ya que esto evitará que la página se actualice correctamente.
+**Advertencia: Se recomienda reiniciar los procesos en la consola usando Ctrl + C y nuevamente "manyp-cli start" para que reconozca los archivos nuevos. Si es necesario, hay que volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante mientras estamos en la fase de desarrollo, verificar que nuestro navegador no esté usando el caché.**
 
 Si todo va bien puede verificar la ruta "./src/js/dist/pages/" que debe contener nuestro archivo en versión de producción, el cual agregaremos a nuestra página modificando el siguiente archivo.
 
@@ -216,13 +215,12 @@ Si todo va bien puede verificar la ruta "./src/js/dist/pages/" que debe contener
 
 ## Uso de widgets ##
 
-Comenzaremos a implementar el widget que se encuentra en "http://localhost:8082/web/" el cual cargará una lista de usuarios de prueba. Lo haremos en la página "page2" previamente creada la cual usa la plantilla "./pageTemplates/temp2.html" que debería tener las dependencias de JQuery y Handlebars de la siguiente manera.
+Comenzaremos implementando el widget que se encuentra en "http://localhost:8082/web/" que carga una lista de usuarios de prueba. Lo haremos en la página "page2" previamente creada, la cual usa la plantilla "./pageTemplates/temp2.html" que debería tener la dependencia Handlebars de la siguiente manera.
 
 **Archivo: ./pageTemplates/temp2.html**
 
 ```html
 ...
-<script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
 <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
 ...
 ```
@@ -260,7 +258,7 @@ Finalmente cargaremos el widget en el contenedor modificando el siguiente archiv
 
 var oApp = {};
 
-$(function(){
+document.addEventListener('DOMContentLoaded', (e) => {;
   console.log('¡Hello World!');
 
   oUsersWidget.load();
@@ -269,13 +267,12 @@ $(function(){
 
 Si todo va bien verás los cambios en el navegador.
 
-Ahora vamos a crear nuestro primer widget y lo haremos en la página "page2", es importante recordar que estos widgets están hechos usando JQuery y Handlebars y por lo tanto sus dependencias deben estar ahí. Si observamos la página "page2 ", veremos que usa la plantilla "./pageTemplates/temp2.html" y que contiene estas dependencias de la siguiente manera.
+Ahora vamos a crear nuestro primer widget y lo haremos en la página "page2". Es importante recordar que estos widgets están hechos usando Handlebars y por lo tanto su dependencia debe estar ahí. Si observamos la página "page2 ", veremos que usa la plantilla "./pageTemplates/temp2.html" y que esta plantilla contiene esta dependencia de la siguiente manera.
 
 **Archivo: ./pageTemplates/temp2.html**
 
 ```html
 ...
-<script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
 <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
 ...
 ```
@@ -301,9 +298,6 @@ El widget que crearemos se llamará "albums" y comenzaremos creando un directori
 
 var oAlbumsWidget = {};
 
-$(function(){
-});
-
 /*
 */
 oAlbumsWidget.load = function(){
@@ -319,9 +313,9 @@ oAlbumsWidget.load = function(){
 }
 ```
 
-El archivo "albums.hbs" contiene la plantilla de nuestro widget con sintaxis handlebars, y el archivo "albums.js" servirá como controlador de nuestro widget que contiene la función "load" que se encargará de tomar los datos desde un servicio web y luego cargar la plantilla con estos.
+El archivo "albums.hbs" contiene la plantilla de nuestro widget con sintaxis handlebars. El archivo "albums.js" servirá como controlador de nuestro widget, este contiene la función "load" que se encargará de tomar los datos desde un servicio web y luego cargar la plantilla con estos.
 
-Es importante actualizar los archivos "./grunt/hbs/routes.js" y "./grunt/hbs/files.js", esto para que el proyecto sepa dónde está la ruta de nuestro archivo "albums.hbs". Lo haremos de la siguiente manera.
+Es importante actualizar los archivos "./grunt/hbs/routes.js" y "./grunt/hbs/files.js", esto para que el proyecto sepa dónde está la ruta de nuestra nueva plantilla. Lo haremos de la siguiente manera.
 
 **Archivo: ./grunt/hbs/routes.js**
 
@@ -343,7 +337,7 @@ exports.o={
 };
 ```
 
-Y también es importante actualizar los archivos "./grunt/js/routes.js" y "./grunt/js/files.js", esto para que el proyecto sepa donde está la ruta de nuestro archivo "albums.js" . Lo haremos de la siguiente manera.
+Y también es importante actualizar los archivos "./grunt/js/routes.js" y "./grunt/js/files.js", esto para que el proyecto sepa donde está la ruta de nuestro archivo JavaScript. Lo haremos de la siguiente manera.
 
 **Archivo: ./grunt/js/routes.js**
 
@@ -367,7 +361,7 @@ exports.o={
 };
 ```
 
-Advertencia: Se recomienda reiniciar los procesos en la consola usando Ctrl + C y nuevamente "manyp-cli start", esto para que reconozcan los cambios en el archivo "Gruntfile.js" y los nuevos archivos. Si es necesario volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante mientras estamos en la fase de desarrollo verificar que nuestro navegador no esté usando el caché, ya que esto evitará que la página se actualice correctamente.
+**Advertencia: Se recomienda reiniciar los procesos en la consola usando Ctrl + C y nuevamente "manyp-cli start" para que reconozca los archivos nuevos. Si es necesario, hay que volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante mientras estamos en la fase de desarrollo, verificar que nuestro navegador no esté usando el caché.**
 
 Si todo va bien puedes comprobar en la ruta "src/js/dist/widget" y "src/template/dist/widget" que deben contener los archivos de producción de nuestro nuevo widget y que añadimos a la página "page2" como se muestra a continuación.
 
@@ -410,7 +404,7 @@ Finalmente cargaremos el widget en el contenedor modificando el siguiente archiv
 
 var oApp = {};
 
-$(function(){
+document.addEventListener('DOMContentLoaded', (e) => {;
   console.log('¡Hello World!');
 
   oUsersWidget.load();
@@ -444,43 +438,35 @@ Comenzaremos haciendo una pequeña modificación a la página creada anteriormen
 </section>
 ```
 
-Vea cómo se creó una nueva etiqueta "<div>" que nos servirá para nuestra prueba. Ahora agregaremos nuestras primeras líneas SASS modificando el siguiente archivo.
+Vea cómo se creó una nueva etiqueta "\<div\>" que nos servirá para nuestra prueba. Ahora agregaremos nuestras primeras líneas SASS modificando el siguiente archivo.
 
 **Archivo: ./src/sass/main.sass**
 
 ```sass
-*
-  margin: 0
-  padding: 0
-
+// SASS
 .test
-  background-color: red
   color: white
+  background-color: black
 ```
 
-Con esto creamos la clase ".test", el archivo de producción "./src/css/dist/main.min.css" se modificará automáticamente y lo agregaremos a la plantilla HTML que usa la página "page2". Lo haremos modificando el siguiente archivo.
+Con esto creamos la clase ".test". El archivo de producción "./src/css/dist/main.min.css" se modificará automáticamente y lo agregaremos a la plantilla HTML que usa la página "page2" como se muestra a continuación.
 
 **Archivo: ./pageTemplates/temp2.html**
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
+...
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 ,user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" href="<<ROOT-DIR>>src/css/dist/main.min.css" />
+  <link rel="stylesheet" type="text/css" href="<<ROOT-DIR>>src/css/dist/main.min.css" />
 
-    <script src="<<ROOT-DIR>>node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
-    <script src="<<ROOT-DIR>>src/js/dist/main.min.js"></script>
+  <script src="<<ROOT-DIR>>node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="<<ROOT-DIR>>src/js/dist/main.min.js"></script>
 
-    <!--headHTML-->
-  </head>
-  <body>
-    <!--bodyHTML-->
-  </body>
-</html>
+  <!--headHTML-->
+</head>
+...
 ```
 
 Ahora añadiremos la nueva clase haciendo la siguiente modificación.
