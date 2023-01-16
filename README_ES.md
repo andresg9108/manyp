@@ -95,13 +95,13 @@ Si todo va bien verá los cambios en el navegador. A continuación se explica ca
 
 Todas las plantillas HTML del proyecto se almacenan en el directorio "./pageTemplates". Comenzaremos abriendo el archivo "./pageTemplates/index.html" para echar un vistazo, vemos que son etiquetas HTML comunes a excepción de "\<\<ROOT-DIR\>\>", "\<!--headHTML--\>" y "\<!--bodyHTML--\>". Se explican a continuación.
 
-"\<!--headHTML--\>": Puede usar esta declaración para que las etiquetas HTML únicas en el encabezado de la página aparezcan cuando se actualicen los archivos de producción.
-"\<!--bodyHTML--\>": Puede usar esta declaración para que las etiquetas HTML únicas en el cuerpo de la página aparezcan cuando se actualicen los archivos de producción.
-"\<\<ROOT-DIR\>\>": Puede usar esta declaración para que cuando se actualicen los archivos de producción aparezca la raíz del proyecto en su lugar. Entonces, si ponemos algo como "\<\<ROOT-DIR\>\>src/example/main.min.js", aparecerá algo como "../../src/example/main.min.js", según la ubicación en la carpeta raíz.
+* "\<!--headHTML--\>": Puede usar esta declaración para que las etiquetas HTML únicas en el encabezado de la página aparezcan cuando se actualicen los archivos de producción.
+* "\<!--bodyHTML--\>": Puede usar esta declaración para que las etiquetas HTML únicas en el cuerpo de la página aparezcan cuando se actualicen los archivos de producción.
+* "\<\<ROOT-DIR\>\>": Puede usar esta declaración para que cuando se actualicen los archivos de producción aparezca la raíz del proyecto en su lugar. Entonces, si ponemos algo como "\<\<ROOT-DIR\>\>src/example/main.min.js", aparecerá algo como "../../src/example/main.min.js", según la ubicación en la carpeta raíz.
 
 También podemos utilizar las siguientes declaraciones.
 
-"\<\<DIR\>\>": Esta declaración hace lo mismo que la anterior pero coloca la ruta un nivel más abajo en la carpeta raíz. Es importante porque en el momento de sacar los archivos de producción las declaraciones “\<\<ROOT-DIR\>\>” serán reemplazadas por “\<\<DIR\>\>”. También nos sirve porque en ocasiones necesitamos saber la ruta actual en el navegador, sobre todo cuando estamos en fase desarrollo y entendiendo que permanecerá así incluso en los archivos de producción.
+* "\<\<DIR\>\>": Esta declaración hace lo mismo que la anterior pero coloca la ruta un nivel más abajo en la carpeta raíz. Es importante porque en el momento de sacar los archivos de producción las declaraciones “\<\<ROOT-DIR\>\>” serán reemplazadas por “\<\<DIR\>\>”. También nos sirve porque en ocasiones necesitamos saber la ruta actual en el navegador, sobre todo cuando estamos en fase desarrollo y entendiendo que permanecerá así incluso en los archivos de producción.
 
 Ahora estamos a punto de crear nuestra primera plantilla HTML que contendrá las siguientes líneas y se llamará "temp2.html".
 
