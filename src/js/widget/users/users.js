@@ -2,16 +2,13 @@
 
 var oUsersWidget = {};
 
-$(function(){
-});
-
 /*
 */
-oUsersWidget.load = function(){
+oUsersWidget.load = () => {
 	fetch('https://jsonplaceholder.typicode.com/users')
-	.then(function(oResponse){ return oResponse.json(); })
-	.then(function(oResponse){
-		var oData = {
+	.then((oResponse) => { return oResponse.json(); })
+	.then((oResponse) => {
+		let oData = {
 			'users': oResponse
 		};
 		oAppMain.loadTemplate('widget/users/users', '#users', oData);
