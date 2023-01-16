@@ -2,9 +2,6 @@
 
 var oUsersWidget = {};
 
-document.addEventListener('DOMContentLoaded', (e) => {
-});
-
 /*
 */
 oUsersWidget.load = () => {
