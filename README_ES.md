@@ -54,7 +54,7 @@ En la fase de desarrollo, el proyecto siempre debe estar atento a los cambios y 
 
 **http://localhost:8082/web**
 
-También se recomienda agregar la extensión Livereload para su explorador Google Chrome o Mozilla Firefox. Esto le indicará a estos navegadores que deben actualizar la página en el momento en que detecten un cambio, pero siempre recuerde ejecutar el comando "manyp-cli start" para evitar que el navegador almacene en caché y habilitar la extensión Livereload en él.
+También se recomienda agregar la extensión Livereload para su explorador Google Chrome o Mozilla Firefox. Esto le indicará a estos navegadores que deben actualizar la página en el momento en que detecten un cambio, pero siempre recuerde ejecutar el comando "manyp-cli start", evitar que el navegador almacene en caché y también habilitar la extensión Livereload en él.
 
 - [Extension for Google Chrome.](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=es "Extension for Google Chrome.")
 - [Extension for Mozilla Firefox.](https://addons.mozilla.org/es/firefox/addon/livereload-web-extension "Extension for Mozilla Firefox.")
@@ -363,7 +363,7 @@ exports.o={
 
 **Advertencia: Se recomienda reiniciar los procesos en la consola con Ctrl + C y nuevamente "manyp-cli start" para que reconozca los nuevos archivos. Si es necesario, debe volver a guardar los cambios realizados para que los archivos de producción se actualicen. También es importante que, mientras esté en la fase de desarrollo, verifique que su navegador no esté usando el caché.**
 
-Si todo va bien, puede comprobar en la ruta "src/js/dist/widget" y "src/template/dist/widget" que deben contener los archivos de producción de nuestro nuevo widget y que añadió a la página "page2" como se muestra a continuación:
+Si todo va bien, puede comprobar en las rutas "src/js/dist/widget" y "src/template/dist/widget" que deben contener los archivos de producción de nuestro nuevo widget y que deben añadirse a la página "page2" como se muestra a continuación:
 
 **Archivo: ./pages/page2/head.html**
 
@@ -449,7 +449,7 @@ Vea cómo se creó una nueva etiqueta "\<div\>" que le servirá para la prueba. 
   background-color: black
 ```
 
-Con esto, creará la clase ".test". El archivo de producción "./src/css/dist/main.min.css" que se modificará automáticamente y lo agregará a la plantilla HTML que usa la página "page2" como se muestra a continuación:
+Con esto, creará la clase ".test". El archivo de producción "./src/css/dist/main.min.css", que se modificará automáticamente, procederá a agregarlo a la plantilla HTML que usa la página "page2" como se muestra a continuación:
 
 **Archivo: ./pageTemplates/temp2.html**
 
@@ -543,5 +543,5 @@ npm i --production --ignore-scripts
 - src/
 - web/
 
-7. También eliminará "src/sass" y dentro de "src/js" y "src/template". Sólo quedará la carpeta "dist".
+7. También eliminará "src/sass" y dentro de"src/js" y "src/template" sólo quedará la carpeta "dist".
 8. Todo el contenido de la carpeta "web" irá a la raíz y luego la borrará.
