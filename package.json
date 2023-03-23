@@ -1,7 +1,7 @@
 {
   "name": "manyp-ag",
-  "version": "4.1.1",
-  "description": "This project aims to provide an alternative to creating websites.",
+  "version": "4.2.0",
+  "description": "This project aims to provide an alternative when creating websites.",
   "scripts": {
     "start": "node main.js",
     "grunt": "grunt",

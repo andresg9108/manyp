@@ -101,7 +101,7 @@ Todas las plantillas HTML del proyecto se almacenan en el directorio "./pageTemp
 
 También podrá utilizar las siguientes declaraciones:
 
-* "\<\<DIR\>\>": Esta declaración hace lo mismo que la anterior, pero coloca la ruta un nivel más abajo en la carpeta raíz. Es importante ya que en el momento de sacar los archivos de producción las declaraciones “\<\<ROOT-DIR\>\>” serán reemplazadas por “\<\<DIR\>\>”. También es útil porque en ocasiones se necesita saber la ruta actual en el navegador, sobre todo en la fase de desarrollo ya que permanecerá así incluso en los archivos de producción.
+* "\<\<DIR\>\>": Esta declaración hace lo mismo que la anterior, pero coloca la ruta un nivel más abajo en la carpeta raíz. Es importante ya que en el momento de generar los archivos de producción las declaraciones “\<\<ROOT-DIR\>\>” serán reemplazadas por “\<\<DIR\>\>”. También es útil porque en ocasiones se necesita saber la ruta actual en el navegador, sobre todo en la fase de desarrollo ya que permanecerá así incluso en los archivos de producción.
 
 Ahora está a punto de crear su primera plantilla HTML, que contendrá las siguientes líneas y se llamará "temp2.html":
 
