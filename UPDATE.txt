@@ -1,4 +1,4 @@
-Update version 4.3.0
+Update version 4.3.1
 
 1. Run "manyp-cli i".
 2. Run "manyp-cli u".
@@ -7,6 +7,9 @@ Update version 4.3.0
 exports.o={
 './src/css/dist/main.min.css': './src/sass/main.sass'
 };
+
+4. If you are having problems with SASS, you should run the following command in the root of your project.
+npm i sass --save-dev
 
 Warning: JQuery will be deprecated in this framework as of version 4.0.0.
 
