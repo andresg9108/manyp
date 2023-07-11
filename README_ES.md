@@ -16,7 +16,6 @@
 
 Este proyecto busca ofrecer una alternativa a la creación de sitios web.
 
-
 ## Dependencias ##
 
 * Node.js (https://nodejs.org).
@@ -28,9 +27,6 @@ Este proyecto busca ofrecer una alternativa a la creación de sitios web.
   - En Windows debe instalarlo y agregarlo a la ruta del sistema operativo.
   - En los sistemas operativos basados en Linux debe ejecutar el comando "sudo apt-get install python-is-python3".
   - Ejecute "python --version" en la consola de su sistema operativo para confirmar si ya está instalado.
-* Sass (https://sass-lang.com).
-  - Ejecute "npm i sass -g" en la consola de su sistema operativo para instalarlo.
-  - Ejecute "sass --version" en la consola de su sistema operativo para comprobar si ya está instalado.
 * CLI de ManyP.
   - Ejecute "npm i manyp-cli -g".
   - En sistemas operativos basados en Linux incluya "--unsafe-perm". El comando quedaría de la siguiente forma: "npm i manyp-cli -g --unsafe-perm".

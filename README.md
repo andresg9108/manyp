@@ -27,9 +27,6 @@ This project aims to provide an alternative when creating websites.
   - On Windows you must install it and add it to the operating system path.
   - On Linux based operating systems you need to run the following command: "sudo apt-get install python-is-python3".
   - Run "python --version" on your operating system console to confirm if it is already installed.
-* Sass (https://sass-lang.com).
-  - Run "npm i sass -g" on your operating system console to install it.
-  - Run "sass --version" on your operating system console to check if it is already installed.
 * ManyP CLI
   - Run "npm i manyp-cli -g".
   - On Linux-based operating systems you must include "--unsafe-perm". The command would look like this: "npm i manyp-cli -g --unsafe-perm".
